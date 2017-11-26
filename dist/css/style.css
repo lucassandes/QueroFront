@@ -1,0 +1,204 @@
+/*
+@gray-base:              #000;
+@gray-darker:            lighten(@gray-base, 13.5%); // #222
+@gray-dark:              lighten(@gray-base, 20%);   // #333
+@gray:                   lighten(@gray-base, 33.5%); // #555
+@gray-light:             lighten(@gray-base, 46.7%); // #777
+@gray-lighter:           lighten(@gray-base, 93.5%); // #eee
+
+@brand-primary:         darken(#428bca, 6.5%); // #337ab7
+@brand-success:         #5cb85c;
+@brand-info:            #5bc0de;
+@brand-warning:         #f0ad4e;
+@brand-danger:          #d9534f;*/
+a {
+  text-decoration: none; }
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box; }
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px; }
+
+/* Self Clearing Goodness */
+.container:after,
+.row:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.column,
+.columns {
+  width: 100%;
+  float: left;
+  box-sizing: border-box; }
+
+/* For devices larger than 400px */
+@media (min-width: 400px) {
+  .container {
+    width: 85%;
+    padding: 0; } }
+
+/* For devices larger than 550px */
+@media (min-width: 550px) {
+  /* columns */
+  .col-1 {
+    width: 8.33333%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 15px; }
+  .col-2 {
+    width: 16.66667%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 15px; }
+  .col-3 {
+    width: 25%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 15px; }
+  .col-4 {
+    width: 33.33333%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 15px; }
+  .col-5 {
+    width: 41.66667%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 15px; }
+  .col-6 {
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 15px; }
+  .col-7 {
+    width: 58.33333%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 15px; }
+  .col-8 {
+    width: 66.66667%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 15px; }
+  .col-9 {
+    width: 75%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 15px; }
+  .col-10 {
+    width: 83.33333%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 15px; }
+  .col-11 {
+    width: 91.66667%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 15px; }
+  .col-12 {
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+    padding: 0 15px; }
+  /* offsets */
+  .offset-col-1 {
+    margin-left: 8.33333%; }
+  .offset-col-2 {
+    margin-left: 16.66667%; }
+  .offset-col-3 {
+    margin-left: 25%; }
+  .offset-col-4 {
+    margin-left: 33.33333%; }
+  .offset-col-5 {
+    margin-left: 41.66667%; }
+  .offset-col-6 {
+    margin-left: 50%; }
+  .offset-col-7 {
+    margin-left: 58.33333%; }
+  .offset-col-8 {
+    margin-left: 66.66667%; }
+  .offset-col-9 {
+    margin-left: 75%; }
+  .offset-col-10 {
+    margin-left: 83.33333%; }
+  .offset-col-11 {
+    margin-left: 91.66667%; }
+  .offset-col-12 {
+    margin-left: 100%; } }
+
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
+
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto; }
+
+.text-center {
+  text-align: center; }
+
+.flex-center {
+  display: flex;
+  align-items: center; }
+
+body {
+  background: url("../images/background_snow_montain.jpg") no-repeat;
+  background-size: cover;
+  font-family: 'Roboto', sans-serif; }
+
+.header {
+  background: white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  color: #848f99; }
+  .header a {
+    color: #848f99; }
+    .header a:hover {
+      color: #14aaf5; }
+  .header .top-bar {
+    border-bottom: 1px solid #e0e6e8;
+    padding: 5px;
+    justify-content: center; }
+    .header .top-bar .header-menu {
+      border-right: 1px solid #e0e6e8;
+      padding: 15px; }
+    .header .top-bar .top-bar-links {
+      margin: 0 15px;
+      font-size: 13px; }
+      .header .top-bar .top-bar-links.selected {
+        color: #151b26; }
+
+.search-input {
+  height: 38px;
+  padding: 6px 10px;
+  background-color: #fff;
+  border: 1px solid #e0e6e8;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  border-radius: 100px;
+  box-shadow: none;
+  box-sizing: border-box;
+  width: 100%; }
+
+.card {
+  background: white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); }
+
+.main .main-header {
+  border-bottom: 1px solid #e0e6e8;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1); }
+
+.test {
+  background: #9a9b9f; }
