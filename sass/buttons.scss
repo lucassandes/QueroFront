@@ -1,0 +1,26 @@
+.button {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-bottom: 0;
+    font-size: $font-size-base;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    @include border-radius(3px);
+    background: none;
+}
+
+.button-calm {
+    color: $calm;
+    border-color: $calm;
+    
+    &:hover {
+        background: rgba(0,0,0, 0.03);
+    }
+    &:active {
+        background: rgba(0,0,0, 0.1);
+    }
+}
+

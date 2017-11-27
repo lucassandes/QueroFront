@@ -5,3 +5,6 @@
           border-radius: $radius;
 }
 
+@mixin border-bottom(){
+    border-bottom: 1px solid $grey-light;
+}

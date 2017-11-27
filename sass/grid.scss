@@ -1,12 +1,19 @@
 .container {
     position: relative;
     width: 100%;
-    max-width: 1000px;
     margin: 0 auto;
     padding: 0 $basic-padding;
     box-sizing: border-box;
 }
 
+.container-big {
+    position: relative;
+    width: 100%;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 0 $basic-padding;
+    box-sizing: border-box;
+}
 .row {
     margin-right: -$basic-padding;
     margin-left: -$basic-padding;
@@ -23,19 +30,12 @@
     clear: both;
 }
 
-.column,
-.columns {
-    width: 100%;
-    float: left;
-    box-sizing: border-box;
-}
-
 
 /* For devices larger than 400px */
 
 @media (min-width: 400px) {
     .container {
-        width: 85%;
+        width: 95%;
         padding: 0;
     }
 }

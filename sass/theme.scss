@@ -1,13 +1,13 @@
 body {
-    margin: 0px;
     background: url('../images/background_snow_montain.jpg') no-repeat;
     background-size: cover;
     font-family: 'Roboto', sans-serif;
+    font-size: $font-size-base;
 }
 
 .header {
     background: white;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
     color: $grey;
     a {
@@ -17,7 +17,7 @@ body {
         }
     }
     .top-bar {
-        border-bottom: 1px solid $grey-light;
+        @include border-bottom();
         padding: 5px;
         padding-right: 20px;
         .header-menu {
@@ -26,7 +26,7 @@ body {
         }
         .top-bar-links {
             margin: 0 $basic-padding;
-            font-size: 13px;
+            font-size: $font-size-base;
             &.selected {
                 color: $grey-darker;
             }
@@ -69,16 +69,27 @@ body {
     box-shadow: none;
     box-sizing: border-box;
     width: 100%;
+    font-size: $font-size-base;
 }
 
 .card {
     background: white;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-.main {
-    .main-header {
-        border-bottom: 1px solid $grey-light;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+    @include border-radius(3px);
+    .card-header {
+        padding: 10px $basic-padding*2;
+        @include border-bottom();
+    }
+    .has-shadow {
         box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
     }
+    .task-list {
+        padding: 0 $basic-padding*2;
+        
+        .task-list-item {
+           padding: 10px;
+           @include border-bottom();
+        }
+    }
 }
+
