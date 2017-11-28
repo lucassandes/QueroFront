@@ -1,14 +1,14 @@
 {
-  "name": "Quero Front-end Test",
-  "version": "1.0",
-  "description": "A simple front-end test",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lucassandes/QueroFront"
-  },
-  "author": "Lucas Sandes",
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0"
-  }
+    "name": "Quero Front-end Test",
+    "version": "1.0",
+    "description": "A simple front-end test",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lucassandes/QueroFront"
+    },
+    "author": "Lucas Sandes",
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "gulp-sass": "^3.1.0"
+    }
 }
