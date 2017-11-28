@@ -74,9 +74,9 @@
                         <div class="pull-left">
                             <button onClick="addTask()" class="button button-calm">Add Task</button>
                         </div>
-
+                        <p id="tex"></p>
                         <div class="pull-right">
-                            <button>Config</button>
+                            <button>Config </button>
                         </div>
                     </div>
 
@@ -102,8 +102,15 @@
 
                     <div class="task-list">
                         <form onSubmit="saveTask()">
-                            <input type="text" placeholder="New Task" />
-                            <textarea placeholder="Description"></textarea>
+                            <input id="task-title" type="text" placeholder="New Task" />
+                            <textarea id="task-desc" placeholder="Description"></textarea>
+
+
+
+                            <input id="inp" type="text">
+
+
+                            <input type="submit" value="Submit">
                         </form>
 
                         <div class="task-list-item ">
