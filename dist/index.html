@@ -16,6 +16,7 @@
 
     <!-- CSS -->
     <!--<link rel="stylesheet" href="css/normalize.css">-->
+    <link rel="stylesheet" href="css/simple-line-icons.css">
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Favicon -->
@@ -26,103 +27,129 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class=" top-bar flex-center">
-            <div class="col-4 flex-center">
-                <nav class="pull-left header-menu">
-                    Menu
-                </nav>
-                <div class="pull-left logo ">
-                    <a href="#" class="top-bar-links selected">My tasks</a>
-                    <a href="#" class="top-bar-links ">Inbox</a>
+    <div class="wrapper">
+        <header class="header">
+            <div class=" top-bar flex-center">
+                <div class="col-4 flex-center">
+                    <nav class="pull-left header-menu flex-center">
+                        <i class="icon-menu"></i>
+                    </nav>
+                    <div class="pull-left logo ">
+                        <a href="#" class="top-bar-links selected">My tasks</a>
+                        <a href="#" class="top-bar-links ">Inbox</a>
 
-                </div>
-
-            </div>
-
-            <div class="col-4">
-                <div class="search-bar">
-                    <input class="search-input" placeholder="Search">
-                </div>
-            </div>
-
-            <div class="col-4 ">
-                <div class="pull-right flex-center">
-                    <a href="#" class="top-bar-links">Help</a>
-                    <a href="#" class="top-bar-links ">Personal Projects</a>
-                    <img src="images/avatar_lucas_sandes.png" class="avatar avatar-medium" />
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container title-header" style="justify-content: center">
-            <div class="flex-center">
-                <img src="images/avatar_lucas_sandes.png" class="avatar avatar-small" />
-                <h1>My Personal Tasks</h1>
-            </div>
-        </div>
-    </header>
-
-
-
-    <div class="container">
-        <div id="main-row-container" class="row">
-            <div id="tasks-container" class="col-8 offset-col-2">
-                <div class="card">
-                    <div class="card-header has-shadow padding-horizontal-2x">
-                        <div class="pull-left">
-                            <button onclick="addTask()" class="button button-calm">Add Task</button>
-                        </div>
-                        <p id="tex"></p>
-                        <div class="pull-right">
-                            <button>Config </button>
-                        </div>
                     </div>
 
-                    <div id="task-list-container" class="task-list">
+                </div>
 
+                <div class="col-4">
+                    <div class="search-bar">
+                        <i class="icon-magnifier icon-input"></i>
+                        <input class="search-input" placeholder="Search">
+                    </div>
+                </div>
+
+                <div class="col-4 ">
+                    <div class="pull-right flex-center">
+                        <a href="#" class="top-bar-links">Help
+                            <i class="icon-arrow-down icon-small"></i>
+                        </a>
+                        <a href="#" class="top-bar-links ">Personal Projects</a>
+                        <img src="images/avatar_lucas_sandes.png" class="avatar avatar-medium" />
                     </div>
                 </div>
             </div>
 
-            <div id="add-task-container" class="col-5" style="display: none">
-                <div class="card">
-                    <div class="card-header padding-horizontal-2x">
-                        <div class="pull-left">
-                            <div class="flex-center">
-                                <img src="images/avatar_lucas_sandes.png" class="avatar avatar-medium" /> Lucas Sandes
+
+            <div class="container title-header" style="justify-content: center">
+                <div class="flex-center">
+                    <img src="images/avatar_lucas_sandes.png" class="avatar avatar-small" />
+                    <h1>My Personal Tasks</h1>
+                </div>
+            </div>
+        </header>
+
+
+
+        <div class="container">
+            <div id="main-row-container" class="row">
+                <div id="tasks-container" class="col-8 offset-col-2">
+                    <div class="card">
+                        <div class="card-header has-shadow padding-horizontal-2x">
+                            <div class="pull-left">
+                                <button onclick="addTask()" class="button button-calm">Add Task</button>
+                            </div>
+
+                            <div class="pull-right">
+                                <button>
+                                    <i class="icon-settings"></i>
+                                </button>
                             </div>
                         </div>
 
-                        <div class="pull-right">
-                            <button onclick="closeAddTask()" class="button button-calm">Close</button>
+                        <div id="task-list-container" class="task-list">
+
                         </div>
                     </div>
+                </div>
 
-                    <div class="task-list">
-                        <form onsubmit="saveTask()">
-                            <div class="col-12 task-title-container">
-                                <input id="task-title" type="text" placeholder="New Task" />
+                <div id="add-task-container" class="col-5" style="display: none">
+                    <div class="card">
+                        <div class="card-header padding-horizontal-2x">
+                            <div class="pull-left">
+                                <div class="flex-center">
+                                    <img src="images/avatar_lucas_sandes.png" class="avatar avatar-medium" /> Lucas Sandes
+                                    <div class="card-header-icons flex-center">
+
+                                        <a href="#">
+                                            <i class="icon-calendar border-dashed"></i>
+                                        </a>
+                                        <span>Due Date </span>
+                                        <a href="#">
+                                            <i class="icon-heart"></i>
+                                        </a>
+                                        <a href="#">
+                                            <i class="icon-share"></i>
+                                        </a>
+                                        <a href="#">
+                                            <i class="icon-paper-clip"></i>
+                                        </a>
+                                        <a href="#">
+                                            <i class="icon-options"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-12 task-desc-container">
-                                <textarea class="description-textarea" id="task-desc" placeholder="Description"></textarea>
+
+                            <div class="pull-right">
+                                <button onclick="closeAddTask()" class="button button-calm">×</button>
                             </div>
+                        </div>
+
+                        <div class="task-list">
+                            <form onsubmit="saveTask()">
+                                <div class="task-title-container">
+                                    <i class="icon-check icon-input"></i>
+                                    <input id="task-title" type="text" placeholder="New Task" />
+                                </div>
+                                <div class=" task-desc-container">
+                                    <textarea class="description-textarea" id="task-desc" placeholder="Description"></textarea>
+                                </div>
 
 
 
-                            <input type="submit" class="button button-calm" value="Submit">
-                        </form>
+                                <input type="submit" class="button button-calm" value="Submit">
+                            </form>
+
+
+                        </div>
 
 
                     </div>
-
-
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

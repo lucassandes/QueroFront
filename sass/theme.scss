@@ -5,6 +5,8 @@ body {
     font-size: $font-size-base;
 }
 
+
+
 .header {
     background: white;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
@@ -17,16 +19,23 @@ body {
         }
     }
     .top-bar {
-        @include border-bottom();
-        padding: 5px;
-        padding-right: 20px;
+        @include border-bottom(); //padding: 0 5px;
+        //padding-right: 20px;
         .header-menu {
             border-right: 1px solid $grey-light;
             padding: $basic-padding;
+            margin-left: -$basic-padding;
+            cursor: pointer;
+            &:hover {
+                background: $grey-lighter;
+            }
         }
         .top-bar-links {
             margin: 0 $basic-padding;
             font-size: $font-size-base;
+            .icon-small {
+                font-size: 8px;
+            }
             &.selected {
                 color: $grey-darker;
             }
@@ -35,14 +44,12 @@ body {
     .title-header {
         display: flex;
         justify-content: center;
-        
         h1 {
             color: $grey-darker;
             font-weight: normal;
             font-size: 24px;
             display: inline-block;
             padding: 0 5px;
-            
         }
     }
 }
@@ -60,16 +67,26 @@ body {
     height: 30px;
 }
 
-.search-input {
-    height: 38px;
-    padding: 6px 10px;
-    background-color: #fff;
-    border: 1px solid $grey-light;
+.icon-input {
+    color: darken($grey-light, 10%);
+    padding-left: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-bar {
     @include border-radius(100px);
-    box-shadow: none;
-    box-sizing: border-box;
-    width: 100%;
-    font-size: $font-size-base;
+    border: 1px solid $grey-light;
+    position: relative;
+    .search-input {
+        padding: 5px 10px 5px 30px;
+        background-color: transparent;
+        box-shadow: none;
+        box-sizing: border-box;
+        width: 100%;
+        font-size: $font-size-base;
+    }
 }
 
 .card {
@@ -79,6 +96,45 @@ body {
     .card-header {
         padding: 10px $basic-padding*2;
         @include border-bottom();
+
+        .avatar {
+            margin-right: 10px;
+        }
+    }
+    .card-header-icons {
+        font-size: 16px;
+        padding: 3px;
+        a{
+            color: darken($grey-light, 5%);
+           
+        }
+        i {
+            @include border-radius(100px);
+            border: 1px solid darken($grey-light, 5%);
+            padding: 5px;
+            margin-left: 5px;
+            height: 30px;
+            width: 30px;
+            &:hover {
+                border-color: $calm;
+                color: $calm;
+              
+            }
+        }
+        .border-dashed {
+            border-style: dashed;
+            &:hover {
+                border-style: solid;  
+            }
+        }
+        span {
+            font-size: $font-size-base;
+            color: $grey;
+            margin: 0 15px 0 10px;
+
+        }
+
+       
     }
     .card-header:after {
         content: "";
@@ -90,30 +146,45 @@ body {
     }
     .task-list {
         padding: 0 $basic-padding*2;
-        
         .task-list-item {
-           padding: 10px;
-           @include border-bottom();
+            padding: 10px 0;
+            @include border-bottom();
+            i {
+                color: darken($grey-light, 5%);
+                font-size: 18px;
+                padding-right: 10px;
+            }
         }
     }
-
     .task-title-container {
         margin-top: 50px;
         border: 1px solid white;
         @include border-radius(3px);
-        &:hover{
+        position: relative;
+        &:hover {
             border: 1px solid $grey-light;
         }
+        i {
+            font-size: 30px;
+        }
         input {
+            padding: 5px 10px 5px 50px;
+            background-color: transparent;
+            box-sizing: border-box;
+            width: 100%;
+            font-size: $font-size-base;
             font-size: 24px;
             font-weight: bold;
             font-family: 'Roboto', sans-serif;
             width: 100%;
-           
+            border: 1px solid transparent;
+            &:focus {
+                outline: none;
+                border: 1px solid $grey;
+            }
         }
     }
-
-    .task-desc-container{
+    .task-desc-container {
         textarea {
             font-size: $font-size-base;
             font-family: 'Roboto', sans-serif;
@@ -121,17 +192,13 @@ body {
             border: 1px solid white;
             @include border-radius(3px);
             padding: 5px;
-            &:hover{
+            &:hover {
                 border: 1px solid $grey-light;
             }
             &:focus {
                 outline: none;
                 border: 1px solid $grey;
             }
-          
         }
     }
-
-
 }
-

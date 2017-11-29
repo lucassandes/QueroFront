@@ -12,7 +12,8 @@ a {
   text-decoration: none; }
 
 input, textarea {
-  border: none; }
+  border: none;
+  box-shadow: none; }
   input:focus, textarea:focus {
     outline: none; }
 
@@ -200,15 +201,19 @@ body {
     .header a:hover {
       color: #14aaf5; }
   .header .top-bar {
-    border-bottom: 1px solid #e0e6e8;
-    padding: 5px;
-    padding-right: 20px; }
+    border-bottom: 1px solid #e0e6e8; }
     .header .top-bar .header-menu {
       border-right: 1px solid #e0e6e8;
-      padding: 15px; }
+      padding: 15px;
+      margin-left: -15px;
+      cursor: pointer; }
+      .header .top-bar .header-menu:hover {
+        background: #f6f8f9; }
     .header .top-bar .top-bar-links {
       margin: 0 15px;
       font-size: 13px; }
+      .header .top-bar .top-bar-links .icon-small {
+        font-size: 8px; }
       .header .top-bar .top-bar-links.selected {
         color: #151b26; }
   .header .title-header {
@@ -234,19 +239,27 @@ body {
 .avatar-medium {
   height: 30px; }
 
-.search-input {
-  height: 38px;
-  padding: 6px 10px;
-  background-color: #fff;
-  border: 1px solid #e0e6e8;
+.icon-input {
+  color: #c3ced2;
+  padding-left: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); }
+
+.search-bar {
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   -ms-border-radius: 100px;
   border-radius: 100px;
-  box-shadow: none;
-  box-sizing: border-box;
-  width: 100%;
-  font-size: 13px; }
+  border: 1px solid #e0e6e8;
+  position: relative; }
+  .search-bar .search-input {
+    padding: 5px 10px 5px 30px;
+    background-color: transparent;
+    box-shadow: none;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 13px; }
 
 .card {
   background: white;
@@ -258,6 +271,34 @@ body {
   .card .card-header {
     padding: 10px 30px;
     border-bottom: 1px solid #e0e6e8; }
+    .card .card-header .avatar {
+      margin-right: 10px; }
+  .card .card-header-icons {
+    font-size: 16px;
+    padding: 3px; }
+    .card .card-header-icons a {
+      color: #d1dadd; }
+    .card .card-header-icons i {
+      -webkit-border-radius: 100px;
+      -moz-border-radius: 100px;
+      -ms-border-radius: 100px;
+      border-radius: 100px;
+      border: 1px solid #d1dadd;
+      padding: 5px;
+      margin-left: 5px;
+      height: 30px;
+      width: 30px; }
+      .card .card-header-icons i:hover {
+        border-color: #14aaf5;
+        color: #14aaf5; }
+    .card .card-header-icons .border-dashed {
+      border-style: dashed; }
+      .card .card-header-icons .border-dashed:hover {
+        border-style: solid; }
+    .card .card-header-icons span {
+      font-size: 13px;
+      color: #848f99;
+      margin: 0 15px 0 10px; }
   .card .card-header:after {
     content: "";
     display: table;
@@ -267,22 +308,38 @@ body {
   .card .task-list {
     padding: 0 30px; }
     .card .task-list .task-list-item {
-      padding: 10px;
+      padding: 10px 0;
       border-bottom: 1px solid #e0e6e8; }
+      .card .task-list .task-list-item i {
+        color: #d1dadd;
+        font-size: 18px;
+        padding-right: 10px; }
   .card .task-title-container {
     margin-top: 50px;
     border: 1px solid white;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
-    border-radius: 3px; }
+    border-radius: 3px;
+    position: relative; }
     .card .task-title-container:hover {
       border: 1px solid #e0e6e8; }
+    .card .task-title-container i {
+      font-size: 30px; }
     .card .task-title-container input {
+      padding: 5px 10px 5px 50px;
+      background-color: transparent;
+      box-sizing: border-box;
+      width: 100%;
+      font-size: 13px;
       font-size: 24px;
       font-weight: bold;
       font-family: 'Roboto', sans-serif;
-      width: 100%; }
+      width: 100%;
+      border: 1px solid transparent; }
+      .card .task-title-container input:focus {
+        outline: none;
+        border: 1px solid #848f99; }
   .card .task-desc-container textarea {
     font-size: 13px;
     font-family: 'Roboto', sans-serif;

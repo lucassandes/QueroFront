@@ -33,8 +33,8 @@
             editTask(element.title, element.description, index);
         };
         //listItem.onclick = "teste()";
-        listItem.className = "task-list-item";
-        listItem.innerHTML = '<i class="icon icon-check" ></i>' + element.title;
+        listItem.className = "task-list-item flex-center";
+        listItem.innerHTML = '<i class="icon-check" ></i>' + element.title;
 
         $("task-list-container").appendChild(listItem);
     }
