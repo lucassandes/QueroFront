@@ -1,4 +1,4 @@
-(function () {
+//(function () {
     //Basic starter info
     var tasks = [
         {
@@ -13,11 +13,15 @@
 
     ];
 
+    // for(i=0; i<40; i++){
+    //     tasks.push({title: "Task boladona" + i, description: "Desk boladona" + i})
+    // }
+
     //loads starter info
     document.addEventListener("DOMContentLoaded", event => {
         console.log("DOM fully loaded and parsed");
         renderTaskList();
-        showEditor();
+        //showEditor();
     });
 
     //BOTH OF THIS WORKS -- PICK THE MOST ELEGANT ONE
@@ -52,11 +56,10 @@
     }
 
     function showEditor() {
-        $('tasks-container').className = "col-7";
+        $('tasks-container').className = "col-7 full-height";
         $("add-task-container").style.display = 'block';
     }
 
-    inp.addEventListener('keyup', doChange, false);
 
     function editTask(title, description, index) {
 
@@ -109,7 +112,7 @@
 
     function closeAddTask() {
         $("add-task-container").style.display = 'none';
-        $("tasks-container").className = "col-8 offset-col-2";
+        $("tasks-container").className = "col-8 offset-col-2 ";
 
     }
-})();
+//})();

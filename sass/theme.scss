@@ -3,9 +3,43 @@ body {
     background-size: cover;
     font-family: 'Roboto', sans-serif;
     font-size: $font-size-base;
+    height: 100%;
 }
 
+.wrapper,
+.header,
+.container {
+    display: flex;
+}
 
+.stretchy {
+    flex: 1 1 auto;
+}
+
+.flex-container {
+    display: flex;
+    overflow: hidden;
+
+    
+    > * {
+        flex: 0 0 auto;
+        overflow: scroll;
+    }
+}
+
+.wrapper {
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    >* {
+        flex: 0 0 auto;
+        overflow: scroll;
+    }
+    >.container {
+        @extend .stretchy;
+      // @extend .flex-container;
+    }
+}
 
 .header {
     background: white;
@@ -93,10 +127,11 @@ body {
     background: white;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
     @include border-radius(3px);
+    height: 100%;
+    overflow: scroll;
     .card-header {
         padding: 10px $basic-padding*2;
         @include border-bottom();
-
         .avatar {
             margin-right: 10px;
         }
@@ -104,9 +139,8 @@ body {
     .card-header-icons {
         font-size: 16px;
         padding: 3px;
-        a{
+        a {
             color: darken($grey-light, 5%);
-           
         }
         i {
             @include border-radius(100px);
@@ -118,23 +152,19 @@ body {
             &:hover {
                 border-color: $calm;
                 color: $calm;
-              
             }
         }
         .border-dashed {
             border-style: dashed;
             &:hover {
-                border-style: solid;  
+                border-style: solid;
             }
         }
         span {
             font-size: $font-size-base;
             color: $grey;
             margin: 0 15px 0 10px;
-
         }
-
-       
     }
     .card-header:after {
         content: "";

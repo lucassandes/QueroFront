@@ -29,42 +29,44 @@
 <body>
     <div class="wrapper">
         <header class="header">
-            <div class=" top-bar flex-center">
-                <div class="col-4 flex-center">
-                    <nav class="pull-left header-menu flex-center">
-                        <i class="icon-menu"></i>
-                    </nav>
-                    <div class="pull-left logo ">
-                        <a href="#" class="top-bar-links selected">My tasks</a>
-                        <a href="#" class="top-bar-links ">Inbox</a>
+            <div class="full-block">
+                <div class=" top-bar flex-center">
+                    <div class="col-4 flex-center">
+                        <nav class="pull-left header-menu flex-center">
+                            <i class="icon-menu"></i>
+                        </nav>
+                        <div class="pull-left logo ">
+                            <a href="#" class="top-bar-links selected">My tasks</a>
+                            <a href="#" class="top-bar-links ">Inbox</a>
+
+                        </div>
 
                     </div>
 
-                </div>
+                    <div class="col-4">
+                        <div class="search-bar">
+                            <i class="icon-magnifier icon-input"></i>
+                            <input class="search-input" placeholder="Search">
+                        </div>
+                    </div>
 
-                <div class="col-4">
-                    <div class="search-bar">
-                        <i class="icon-magnifier icon-input"></i>
-                        <input class="search-input" placeholder="Search">
+                    <div class="col-4 ">
+                        <div class="pull-right flex-center">
+                            <a href="#" class="top-bar-links">Help
+                                <i class="icon-arrow-down icon-small"></i>
+                            </a>
+                            <a href="#" class="top-bar-links ">Personal Projects</a>
+                            <img src="images/avatar_lucas_sandes.png" class="avatar avatar-medium" />
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-4 ">
-                    <div class="pull-right flex-center">
-                        <a href="#" class="top-bar-links">Help
-                            <i class="icon-arrow-down icon-small"></i>
-                        </a>
-                        <a href="#" class="top-bar-links ">Personal Projects</a>
-                        <img src="images/avatar_lucas_sandes.png" class="avatar avatar-medium" />
+
+                <div class="container title-header" style="justify-content: center">
+                    <div class="flex-center">
+                        <img src="images/avatar_lucas_sandes.png" class="avatar avatar-small" />
+                        <h1>My Personal Tasks</h1>
                     </div>
-                </div>
-            </div>
-
-
-            <div class="container title-header" style="justify-content: center">
-                <div class="flex-center">
-                    <img src="images/avatar_lucas_sandes.png" class="avatar avatar-small" />
-                    <h1>My Personal Tasks</h1>
                 </div>
             </div>
         </header>
@@ -72,10 +74,11 @@
 
 
         <div class="container">
-            <div id="main-row-container" class="row">
-                <div id="tasks-container" class="col-8 offset-col-2">
+            <div id="main-row-container" class="row full-block">
+                <div id="tasks-container" class="col-8 offset-col-2 full-height">
                     <div class="card">
                         <div class="card-header has-shadow padding-horizontal-2x">
+                            
                             <div class="pull-left">
                                 <button onclick="addTask()" class="button button-calm">Add Task</button>
                             </div>
@@ -93,7 +96,7 @@
                     </div>
                 </div>
 
-                <div id="add-task-container" class="col-5" style="display: none">
+                <div id="add-task-container" class="col-5 full-height" style="display: none">
                     <div class="card">
                         <div class="card-header padding-horizontal-2x">
                             <div class="pull-left">
