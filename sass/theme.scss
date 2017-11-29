@@ -96,5 +96,44 @@ body {
            @include border-bottom();
         }
     }
+
+    .task-title-container {
+        margin-top: 50px;
+        border: 1px solid white;
+        @include border-radius(3px);
+        &:hover{
+            border: 1px solid $grey-light;
+        }
+        input {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+            width: 100%;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .task-desc-container{
+        textarea {
+            font-size: $font-size-base;
+            font-family: 'Roboto', sans-serif;
+            width: 100%;
+            border: 1px solid white;
+            @include border-radius(3px);
+            padding: 5px;
+            &:hover{
+                border: 1px solid $grey-light;
+            }
+            &:focus {
+                outline: none;
+                border: 1px solid $grey;
+            }
+          
+        }
+    }
+
+
 }
 

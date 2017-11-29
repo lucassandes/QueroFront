@@ -16,6 +16,7 @@ var tasks = [
 document.addEventListener("DOMContentLoaded", event => {
     console.log("DOM fully loaded and parsed");
     renderTaskList();
+	showEditor();
 });
 
 //BOTH OF THIS WORKS -- PICK THE MOST ELEGANT ONE
@@ -26,7 +27,6 @@ var $ = document
 
 function addTaskItem(element, index) {
     var listItem = document.createElement("div");
-    //listItem.id = "task-" + index;
     listItem.id = "task-" + index;
     listItem.onclick = function () {
         editTask(element.title, element.description, index);
@@ -46,48 +46,42 @@ function renderTaskList(task) {
     } else {
         tasks.forEach((element, index) => {
             addTaskItem(element, index + 1);
-            console.log(index);
         });
     }
 }
 
-
-var titleBinded;
-function editTask(title, description, index) {
-
-    console.log("Edit task");
+function showEditor() {
     $('tasks-container').className = "col-7";
     $("add-task-container").style.display = 'block';
-    $("task-title").value = title;
-    $("task-desc").value = description;
+}
 
+function editTask(title, description, index) {
+
+    showEditor();
+    var taskTitle = $("task-title");
+
+    taskTitle.value = title;
+    $("task-desc").value = description;
 
     var inp = $("task-title");
     var tex = $("task-" + index);
+    console.log(tex);
 
+    console.log(index);
     // listener
     inp.addEventListener('keyup', doChange);
 
     // action
     function doChange() {
-        tex.innerText = inp.value;
+        tex.innerHTML = inp.value;
     }
-    
+
     //titleBinded = $("task-title").addEventListener('keyup', doChange(index));
-}
-
-
-
-// action
-function doChange(index) {
-
-    $("task-" + index).innerText = titleBinded.value;
 }
 
 function addTask() {
     console.log("Add task");
-    $('tasks-container').className = "col-7";
-    $("add-task-container").style.display = 'block';
+    showEditor();
 
     // var title = $("task-title").addEventListener('keyup', doChange); var
     // description = $("task-desc").addEventListener('keyup', doChange);

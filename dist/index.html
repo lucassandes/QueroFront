@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Fonts -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
     <!-- CSS -->
     <!--<link rel="stylesheet" href="css/normalize.css">-->
@@ -72,7 +72,7 @@
                 <div class="card">
                     <div class="card-header has-shadow padding-horizontal-2x">
                         <div class="pull-left">
-                            <button onClick="addTask()" class="button button-calm">Add Task</button>
+                            <button onclick="addTask()" class="button button-calm">Add Task</button>
                         </div>
                         <p id="tex"></p>
                         <div class="pull-right">
@@ -96,27 +96,28 @@
                         </div>
 
                         <div class="pull-right">
-                            <button onClick="closeAddTask()" class="button button-calm">Close</button>
+                            <button onclick="closeAddTask()" class="button button-calm">Close</button>
                         </div>
                     </div>
 
                     <div class="task-list">
-                        <form onSubmit="saveTask()">
-                            <input id="task-title" type="text" placeholder="New Task" />
-                            <textarea id="task-desc" placeholder="Description"></textarea>
+                        <form onsubmit="saveTask()">
+                            <div class="col-12 task-title-container">
+                                <input id="task-title" type="text" placeholder="New Task" />
+                            </div>
+                            <div class="col-12 task-desc-container">
+                                <textarea class="description-textarea" id="task-desc" placeholder="Description"></textarea>
+                            </div>
 
 
 
-                            <input id="inp" type="text">
-
-
-                            <input type="submit" value="Submit">
+                            <input type="submit" class="button button-calm" value="Submit">
                         </form>
 
-                        <div class="task-list-item ">
-                            <i class="icon icon-check"></i> Work it harder
-                        </div>
+
                     </div>
+
+
                 </div>
             </div>
         </div>
