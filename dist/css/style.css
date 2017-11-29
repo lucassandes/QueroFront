@@ -13,6 +13,8 @@ a {
 
 input, textarea {
   border: none; }
+  input:focus, textarea:focus {
+    outline: none; }
 
 .button {
   display: inline-block;
@@ -281,8 +283,6 @@ body {
       font-weight: bold;
       font-family: 'Roboto', sans-serif;
       width: 100%; }
-      .card .task-title-container input:focus {
-        outline: none; }
   .card .task-desc-container textarea {
     font-size: 13px;
     font-family: 'Roboto', sans-serif;
