@@ -3,150 +3,156 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <title>My Tasks</title>
-    <meta name="description" content="">
-    <meta name="author" content="Lucas Sandes">
+	<meta charset="utf-8">
+	<title>My Tasks</title>
+	<meta name="description" content="">
+	<meta name="author" content="Lucas Sandes">
 
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
-    <!-- CSS -->
-    <!--<link rel="stylesheet" href="css/normalize.css">-->
-    <link rel="stylesheet" href="css/simple-line-icons.css">
-    <link rel="stylesheet" href="css/style.css">
+	<!-- CSS -->
+	<!--<link rel="stylesheet" href="css/normalize.css">-->
+	<link rel="stylesheet" href="css/simple-line-icons.css">
+	<link rel="stylesheet" href="css/style.css">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="images/favicon.png">
 
-    <!-- js -->
-    <script src="js/scripts.js"></script>
+	<!-- js -->
+	<script src="js/scripts.js"></script>
 </head>
 
 <body>
-    <div class="wrapper">
-        <header class="header">
-            <div class="full-block">
-                <div class=" top-bar flex-center">
-                    <div class="col-4 flex-center">
-                        <nav class="pull-left header-menu flex-center">
-                            <i class="icon-menu"></i>
-                        </nav>
-                        <div class="pull-left logo ">
-                            <a href="#" class="top-bar-links selected">My tasks</a>
-                            <a href="#" class="top-bar-links ">Inbox</a>
+	<div class="wrapper">
+		<header class="header">
+			<div class="full-block">
+				<div class=" top-bar flex-center">
+					<div class="col-4 flex-center">
+						<nav class="pull-left header-menu flex-center">
+							<i class="icon-menu"></i>
+						</nav>
+						<div class="pull-left logo ">
+							<a href="#" class="top-bar-links selected">My tasks</a>
+							<a href="#" class="top-bar-links ">Inbox</a>
 
-                        </div>
+						</div>
 
-                    </div>
+					</div>
 
-                    <div class="col-4">
-                        <div class="search-bar">
-                            <i class="icon-magnifier icon-input"></i>
-                            <input class="search-input" placeholder="Search">
-                        </div>
-                    </div>
+					<div class="col-4">
+						<div class="search-bar">
+							<i class="icon-magnifier icon-input"></i>
+							<input class="search-input" placeholder="Search">
+						</div>
+					</div>
 
-                    <div class="col-4 ">
-                        <div class="pull-right flex-center">
-                            <a href="#" class="top-bar-links">Help
+					<div class="col-4 ">
+						<div class="pull-right flex-center">
+							<a href="#" class="top-bar-links">Help
                                 <i class="icon-arrow-down icon-small"></i>
                             </a>
-                            <a href="#" class="top-bar-links ">Personal Projects</a>
-                            <img src="images/avatar_lucas_sandes.png" class="avatar avatar-medium" />
-                        </div>
-                    </div>
-                </div>
+							<a href="#" class="top-bar-links ">Personal Projects</a>
+							<img src="images/avatar_lucas_sandes.png" class="avatar avatar-medium" />
+						</div>
+					</div>
+				</div>
 
 
-                <div class="container title-header" style="justify-content: center">
-                    <div class="flex-center">
-                        <img src="images/avatar_lucas_sandes.png" class="avatar avatar-small" />
-                        <h1>My Personal Tasks</h1><i class="icon-arrow-down icon-small"></i>
-                    </div>
-                </div>
-            </div> 
-        </header>
+				<div class="container title-header" style="justify-content: center">
+					<div class="flex-center">
+						<img src="images/avatar_lucas_sandes.png" class="avatar avatar-small" />
+						<h1>My Personal Tasks</h1><i class="icon-arrow-down icon-small"></i>
+					</div>
+				</div>
+			</div>
+		</header>
 
 
 
-        <div class="container">
-            <div id="main-row-container" class="row full-block">
-                <div id="tasks-container" class="col-8 offset-col-2 full-height">
-                    <div class="card main-content">
-                        <div class="card-header has-shadow padding-horizontal-2x flex-center space-between">
-    
-                            <button onclick="addTask()" class="button button-calm">Add Task</button>
-                            
-                            <div class="absolute-right">
-                                <button class="button button-ghost">
-                                    <i class="icon-settings"></i>
-                                </button>
-                            </div>
-                        </div>
+		<div class="container">
+			<div id="main-row-container" class="row full-block">
+				<div id="tasks-container" class="col-8 offset-col-2 full-height">
+					<div class="card main-content">
+						<div class="card-header has-shadow padding-horizontal-2x flex-center space-between">
 
-                        <div id="task-list-container" class="task-list">
+							<button onclick="addTask()" class="button button-calm">Add Task</button>
 
-                        </div>
-                    </div>
-                </div>
+							<div class="absolute-right">
+								<button class="button button-ghost">
+									<i class="icon-settings"></i>
+								</button>
+							</div>
+						</div>
 
-                <div id="add-task-container" class="col-5 full-height" style="display: none">
-                    <div class="card">
-                        <div class="card-header padding-horizontal-2x">
-                            <div class="pull-left">
-                                <div class="flex-center">
-                                    <img src="images/avatar_lucas_sandes.png" class="avatar avatar-medium" /> Lucas Sandes
-                                    <div class="card-header-icons flex-center">
+						<div id="task-list-container" class="task-list">
 
-                                        <a href="#">
-                                            <i class="icon-calendar border-dashed"></i>
-                                        </a>
-                                        <span>Due Date </span>
-                                        <a href="#">
-                                            <i class="icon-heart"></i>
-                                        </a>
-                                        <a href="#">
-                                            <i class="icon-share"></i>
-                                        </a>
-                                        <a href="#">
-                                            <i class="icon-paper-clip"></i>
-                                        </a>
-                                        <a href="#">
-                                            <i class="icon-options"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+						</div>
+					</div>
+				</div>
 
-                            <div class="absolute-right top-zero">
-                                <button onclick="closeAddTask()" class="button button-ghost button-close">×</button>
-                            </div>
-                        </div>
+				<div id="add-task-container" class="col-5 full-height" style="display: none">
+					<div class="card">
+						<div class="card-header padding-horizontal-2x">
+							<div class="pull-left">
+								<div class="flex-center">
+									<img src="images/avatar_lucas_sandes.png" class="avatar avatar-medium" /> Lucas Sandes
+									<div class="card-header-icons flex-center">
 
-                        <div class="task-list">
-                            <form onsubmit="saveTask()">
-                                <div class="task-title-container">
-                                    <i class="icon-check icon-input"></i>
-                                    <input id="task-title" onkeyup="updateTaskTitle()" type="text" placeholder="New Task" />
-                                </div>
-                                <div class=" task-desc-container">
-                                    <textarea class="description-textarea" onkeyup="updateTaskDesc()" id="task-desc" placeholder="Description"></textarea>
-                                </div>
-                            </form>
+										<a href="#">
+											<i class="icon-calendar border-dashed"></i>
+										</a>
+										<span>Due Date </span>
+										<a href="#">
+											<i class="icon-heart"></i>
+										</a>
+										<a href="#">
+											<i class="icon-share"></i>
+										</a>
+										<a href="#">
+											<i class="icon-paper-clip"></i>
+										</a>
+										<a href="#">
+											<i class="icon-options"></i>
+										</a>
+									</div>
+								</div>
+							</div>
 
+							<div class="absolute-right top-zero">
+								<button onclick="closeAddTask()" class="button button-ghost button-close">×</button>
+							</div>
+						</div>
 
-                        </div>
+						<div class="task-list">
+							<form onsubmit="saveTask()">
+								<div class="task-title-container">
+									<i class="icon-check icon-input"></i>
+									<input id="task-title" onkeyup="updateTaskTitle()" type="text" placeholder="New Task" />
+								</div>
+								<div class=" task-desc-container">
+									<textarea class="description-textarea" onkeyup="updateTaskDesc()" id="task-desc" placeholder="Description"></textarea>
+								</div>
+							</form>
 
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+						</div>
+
+						<div class="add-comment-container">
+
+							<img src="images/avatar_lucas_sandes.png" class="avatar avatar-medium" />
+
+							<textarea rows="4" cols="100%" class="description-textarea" onkeyup="updateTaskDesc()" placeholder="Write a comment..."></textarea>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>

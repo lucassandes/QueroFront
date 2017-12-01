@@ -1,241 +1,272 @@
 body {
-    background: url('../images/background_snow_montain.jpg') no-repeat;
-    background-size: cover;
-    font-family: 'Roboto', sans-serif;
-    font-size: $font-size-base;
-    height: 100%;
+	background: url('../images/background_snow_montain.jpg') no-repeat;
+	background-size: cover;
+	font-family: 'Roboto', sans-serif;
+	font-size: $font-size-base;
+	height: 100%;
 }
 
 .wrapper,
 .header,
 .container {
-    display: flex;
+	display: flex;
 }
 
 .stretchy {
-    flex: 1 1 auto;
+	flex: 1 1 auto;
 }
 
 .flex-container {
-    display: flex;
-    overflow: hidden;
-    >* {
-        flex: 0 0 auto;
-        overflow: scroll;
-    }
+	display: flex;
+	overflow: hidden;
+	>* {
+		flex: 0 0 auto;
+		overflow: scroll;
+	}
 }
 
 .wrapper {
-    flex-direction: column;
-    height: 100%;
-    overflow: hidden;
-    >* {
-        flex: 0 0 auto;
-        overflow: scroll;
-    }
-    >.container {
-        @extend .stretchy; //@extend .flex-container;
-    }
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+	>* {
+		flex: 0 0 auto;
+		overflow: scroll;
+	}
+	>.container {
+		@extend .stretchy; //@extend .flex-container;
+	}
 }
 
 .container {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .header {
-    background: white;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
-    color: $grey;
-    overflow: hidden;
-    a {
-        color: $grey;
-        &:hover {
-            color: $calm;
-        }
-    }
-    .top-bar {
-        @include border-bottom(); //padding: 0 5px;
-        //padding-right: 20px;
-        .header-menu {
-            border-right: 1px solid $grey-light;
-            padding: $basic-padding;
-            margin-left: -$basic-padding;
-            cursor: pointer;
-            &:hover {
-                background: $grey-lighter;
-            }
-        }
-        .top-bar-links {
-            margin: 0 $basic-padding;
-            font-size: $font-size-base;
-            .icon-small {
-                font-size: 8px;
-            }
-            &.selected {
-                color: $grey-darker;
-            }
-        }
-    }
-    .title-header {
-        display: flex;
-        justify-content: center;
-        h1 {
-            color: $grey-darker;
-            font-weight: normal;
-            font-size: 24px;
-            display: inline-block;
-            padding: 0 5px;
-        }
-    }
+	background: white;
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+	margin-bottom: 20px;
+	color: $grey;
+	overflow: hidden;
+	a {
+		color: $grey;
+		&:hover {
+			color: $calm;
+		}
+	}
+	.top-bar {
+		@include border-bottom(); //padding: 0 5px;
+		//padding-right: 20px;
+		.header-menu {
+			border-right: 1px solid $grey-light;
+			padding: $basic-padding;
+			margin-left: -$basic-padding;
+			cursor: pointer;
+			&:hover {
+				background: $grey-lighter;
+			}
+		}
+		.top-bar-links {
+			margin: 0 $basic-padding;
+			font-size: $font-size-base;
+			.icon-small {
+				font-size: 8px;
+			}
+			&.selected {
+				color: $grey-darker;
+			}
+		}
+	}
+	.title-header {
+		display: flex;
+		justify-content: center;
+		h1 {
+			color: $grey-darker;
+			font-weight: normal;
+			font-size: 24px;
+			display: inline-block;
+			padding: 0 5px;
+		}
+	}
 }
 
 .avatar {
-    @include border-radius(100px);
-    border: 1px solid $grey-light;
+	@include border-radius(100px);
+	border: 1px solid $grey-light;
 }
 
 .avatar-small {
-    height: 24px;
+	height: 24px;
 }
 
 .avatar-medium {
-    height: 30px;
+	height: 30px;
 }
 
 .icon-input {
-    color: darken($grey-light, 10%);
-    padding-left: 10px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+	color: darken($grey-light, 10%);
+	padding-left: 10px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .search-bar {
-    @include border-radius(100px);
-    border: 1px solid $grey-light;
-    position: relative;
-    .search-input {
-        padding: 5px 10px 5px 30px;
-        background-color: transparent;
-        box-shadow: none;
-        box-sizing: border-box;
-        width: 100%;
-        font-size: $font-size-base;
-    }
+	@include border-radius(100px);
+	border: 1px solid $grey-light;
+	position: relative;
+	.search-input {
+		padding: 5px 10px 5px 30px;
+		background-color: transparent;
+		box-shadow: none;
+		box-sizing: border-box;
+		width: 100%;
+		font-size: $font-size-base;
+	}
 }
 
 .card {
-    background: white;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
-    @include border-radius(3px);
-    height: 100%;
-    overflow: hidden;
-    &.main-content {
-        //flex: 0 0 auto;
-        overflow-y: scroll;
-    }
-    .card-header {
-        padding: 10px $basic-padding*2;
-        @include border-bottom();
-        position: relative;
-        .avatar {
-            margin-right: 10px;
-        }
-    }
-    .card-header-icons {
-        font-size: 16px;
-        padding: 3px;
-        a {
-            color: $grey-almost-light;
-        }
-        i {
-            @include border-radius(100px);
-            border: 1px solid $grey-almost-light;
-            padding: 5px;
-            margin-left: 5px;
-            height: 30px;
-            width: 30px;
-            &:hover {
-                border-color: $calm;
-                color: $calm;
-            }
-        }
-        .border-dashed {
-            border-style: dashed;
-            &:hover {
-                border-style: solid;
-            }
-        }
-        span {
-            font-size: $font-size-base;
-            color: $grey;
-            margin: 0 15px 0 10px;
-        }
-    }
-    .card-header:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    .has-shadow {
-        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-    }
-    .task-list {
-        padding: 0 $basic-padding*2;
-        .task-list-item {
-            padding: 10px 0;
-            @include border-bottom();
-            i {
-                color: $grey-almost-light;
-                font-size: 18px;
-                padding-right: 10px;
-            }
-        }
-    }
-    .task-title-container {
-        margin-top: 50px;
-        border: 1px solid white;
-        @include border-radius(3px);
-        position: relative;
-        &:hover {
-            border: 1px solid $grey-light;
-        }
-        i {
-            font-size: 30px;
-        }
-        input {
-            padding: 5px 10px 5px 50px;
-            background-color: transparent;
-            box-sizing: border-box;
-            width: 100%;
-            font-size: $font-size-base;
-            font-size: 24px;
-            font-weight: bold;
-            font-family: 'Roboto', sans-serif;
-            width: 100%;
-            border: 1px solid transparent;
-            &:focus {
-                outline: none;
-                border: 1px solid $grey;
-            }
-        }
-    }
-    .task-desc-container {
-        textarea {
-            font-size: $font-size-base;
-            font-family: 'Roboto', sans-serif;
-            width: 100%;
-            border: 1px solid white;
-            @include border-radius(3px);
-            padding: 5px;
-            &:hover {
-                border: 1px solid $grey-light;
-            }
-            &:focus {
-                outline: none;
-                border: 1px solid $grey;
-            }
-        }
-    }
+	background: white;
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+	@include border-radius(3px);
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	&.main-content {
+		//flex: 0 0 auto;
+		overflow-y: scroll;
+	}
+	.card-header {
+		padding: 10px $basic-padding*2;
+		@include border-bottom();
+		position: relative;
+		.avatar {
+			margin-right: 10px;
+		}
+	}
+	.card-header-icons {
+		font-size: 16px;
+		padding: 3px;
+		a {
+			color: $grey-almost-light;
+		}
+		i {
+			@include border-radius(100px);
+			border: 1px solid $grey-almost-light;
+			padding: 5px;
+			margin-left: 5px;
+			height: 30px;
+			width: 30px;
+			&:hover {
+				border-color: $calm;
+				color: $calm;
+			}
+		}
+		.border-dashed {
+			border-style: dashed;
+			&:hover {
+				border-style: solid;
+			}
+		}
+		span {
+			font-size: $font-size-base;
+			color: $grey;
+			margin: 0 15px 0 10px;
+		}
+	}
+	.card-header:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	.has-shadow {
+		box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+	}
+	.task-list {
+		padding: 0 $basic-padding*2;
+		.task-list-item {
+			padding: 10px 0;
+			@include border-bottom();
+			i {
+				color: $grey-almost-light;
+				font-size: 18px;
+				padding-right: 10px;
+			}
+		}
+	}
+	.task-title-container {
+		margin-top: 50px;
+		border: 1px solid white;
+		@include border-radius(3px);
+		position: relative;
+		&:hover {
+			border: 1px solid $grey-light;
+		}
+		i {
+			font-size: 30px;
+		}
+		input {
+			padding: 5px 10px 5px 50px;
+			background-color: transparent;
+			box-sizing: border-box;
+			width: 100%;
+			font-size: $font-size-base;
+			font-size: 24px;
+			font-weight: bold;
+			font-family: 'Roboto', sans-serif;
+			width: 100%;
+			border: 1px solid transparent;
+			&:focus {
+				outline: none;
+				border: 1px solid $grey;
+			}
+		}
+	}
+	.task-desc-container {
+		margin-top: $basic-padding;
+		textarea {
+			font-size: $font-size-base;
+			font-family: 'Roboto', sans-serif;
+			width: 100%;
+			box-sizing: border-box;
+			border: 1px solid white;
+			@include border-radius(3px);
+			padding: 5px;
+			&:hover {
+				border: 1px solid $grey-light;
+			}
+			&:focus {
+				outline: none;
+				border: 1px solid $grey;
+			}
+		}
+	}
+}
+
+.add-comment-container {
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	padding: $basic-padding $basic-padding * 2;
+	width: 100%;
+	box-sizing: border-box;
+	background: $grey-lighter;
+	border-top: 1px solid $grey-light;
+	.avatar {
+		margin-right: 10px;
+	}
+	textarea {
+		font-size: $font-size-base;
+		font-family: 'Roboto', sans-serif;
+		width: 100%;
+		box-sizing: border-box;
+		border: 1px solid white;
+		@include border-radius(3px);
+		padding: 5px;
+		border: 1px solid $grey-light;
+		&:focus {
+			outline: none;
+			border: 1px solid $grey;
+		}
+	}
 }
