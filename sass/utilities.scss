@@ -6,6 +6,18 @@
     float: right;
 }
 
+.space-between {
+    justify-content: space-between;
+}
+
+.absolute-right {
+    position: absolute;
+    right: 0;
+}
+.top-zero{
+    top: 0;
+}
+
 .center-block {
     display: block;
     margin-right: auto;

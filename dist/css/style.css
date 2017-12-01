@@ -32,6 +32,20 @@ input, textarea {
   -ms-border-radius: 3px;
   border-radius: 3px;
   background: none; }
+  .button:focus {
+    outline: none; }
+
+.button-ghost {
+  background: transparent;
+  border: none;
+  color: #848f99;
+  font-size: 16px; }
+  .button-ghost:hover {
+    color: #14aaf5; }
+
+.button-close {
+  color: #c3ced2;
+  font-size: 24px; }
 
 .button-calm {
   color: #14aaf5;
@@ -168,6 +182,16 @@ input, textarea {
 .pull-right {
   float: right; }
 
+.space-between {
+  justify-content: space-between; }
+
+.absolute-right {
+  position: absolute;
+  right: 0; }
+
+.top-zero {
+  top: 0; }
+
 .center-block {
   display: block;
   margin-right: auto;
@@ -223,11 +247,15 @@ body {
     flex: 0 0 auto;
     overflow: scroll; }
 
+.container {
+  overflow: hidden; }
+
 .header {
   background: white;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
   margin-bottom: 20px;
-  color: #848f99; }
+  color: #848f99;
+  overflow: hidden; }
   .header a {
     color: #848f99; }
     .header a:hover {
@@ -301,23 +329,26 @@ body {
   -ms-border-radius: 3px;
   border-radius: 3px;
   height: 100%;
-  overflow: scroll; }
+  overflow: hidden; }
+  .card.main-content {
+    overflow-y: scroll; }
   .card .card-header {
     padding: 10px 30px;
-    border-bottom: 1px solid #e0e6e8; }
+    border-bottom: 1px solid #e0e6e8;
+    position: relative; }
     .card .card-header .avatar {
       margin-right: 10px; }
   .card .card-header-icons {
     font-size: 16px;
     padding: 3px; }
     .card .card-header-icons a {
-      color: #d1dadd; }
+      color: #c3ced2; }
     .card .card-header-icons i {
       -webkit-border-radius: 100px;
       -moz-border-radius: 100px;
       -ms-border-radius: 100px;
       border-radius: 100px;
-      border: 1px solid #d1dadd;
+      border: 1px solid #c3ced2;
       padding: 5px;
       margin-left: 5px;
       height: 30px;
@@ -345,7 +376,7 @@ body {
       padding: 10px 0;
       border-bottom: 1px solid #e0e6e8; }
       .card .task-list .task-list-item i {
-        color: #d1dadd;
+        color: #c3ced2;
         font-size: 18px;
         padding-right: 10px; }
   .card .task-title-container {

@@ -10,8 +10,23 @@
     border: 1px solid transparent;
     @include border-radius(3px);
     background: none;
+    &:focus {
+        outline: none;
+    }
 }
-
+.button-ghost {
+    background: transparent;
+    border: none;
+    color: $grey;
+    font-size: 16px;
+    &:hover {
+        color: $calm;
+    }
+}
+.button-close {
+    color: $grey-almost-light; 
+    font-size: 24px;
+}
 .button-calm {
     color: $calm;
     border-color: $calm;
