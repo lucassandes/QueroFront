@@ -377,21 +377,28 @@ body {
     overflow-y: auto;
     height: 100%; }
     .card .task-list .task-list-item {
-      padding: 10px 0;
       border-bottom: 1px solid #e0e6e8; }
+      .card .task-list .task-list-item span {
+        padding: 10px 0;
+        width: 100%; }
       .card .task-list .task-list-item.task-item-selected {
+        /* Quick hack for avoid encapsulating task-item on a parent node */
         background: #edf8ff;
         margin-left: -30px;
         margin-right: -30px;
         padding-left: 30px;
         border-color: #edf8ff;
-        /* Quick hack for avoid encapsulating task-item on a parent node */
         margin-top: -1px;
         border-top: 1px solid #edf8ff; }
       .card .task-list .task-list-item i {
         color: #c3ced2;
         font-size: 18px;
-        padding-right: 10px; }
+        padding-right: 10px;
+        cursor: pointer; }
+        .card .task-list .task-list-item i:hover {
+          color: #a3d7a3; }
+        .card .task-list .task-list-item i:active {
+          color: #5cb85c; }
   .card .task-title-container {
     margin-top: 50px;
     border: 1px solid white;

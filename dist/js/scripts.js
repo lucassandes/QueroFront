@@ -1,6 +1,5 @@
 //(function () { Basic starter info
 "use strict";
-
 var dummyData = [
     {
         title: "1 - We're no strangers to love",
@@ -29,14 +28,27 @@ var State = function () {
     this.selectedTask = {};
 };
 
+//BOTH OF THIS WORKS -- PICK THE MOST ELEGANT ONE
+var $ = document
+    .getElementById
+    .bind(document);
+//function $(id) { return document.getElementById(id); } dom elements
+
 var $state = new State();
+
+document.addEventListener("DOMContentLoaded", event => {
+    console.log("DOM fully loaded and parsed");
+    renderTaskList();
+
+});
+
 dealWithLocalStorage();
 
 function dealWithLocalStorage() {
     if (!localStorage.getItem('task-title-0')) {
         // Use dummy data and save it in localStorage
         $state.tasks = dummyData;
-        console.log("There's nothing stored at localHost. Using dummy data...");
+        console.log("There's nothing stored at localStorage. Using dummy data...");
         populateStorage($state.tasks);
 
     } else {
@@ -67,17 +79,6 @@ function populateStorage(tasks) {
 
 // for(i=0; i<40; i++){     tasks.push({title: "Task boladona" + i, description:
 // "Desk boladona" + i}) } loads starter info
-document.addEventListener("DOMContentLoaded", event => {
-    console.log("DOM fully loaded and parsed");
-    renderTaskList();
-
-});
-
-//BOTH OF THIS WORKS -- PICK THE MOST ELEGANT ONE
-var $ = document
-    .getElementById
-    .bind(document);
-//function $(id) { return document.getElementById(id); } dom elements
 
 function addTaskItem(element, index) {
 
@@ -105,18 +106,43 @@ function addTaskItem(element, index) {
     // id="task-title-' + index + '">' + element.title + '</span>';
     // listItem.appendChild(listItemInner); Adding Edit Task function to it
 
-    listItem.onclick = function () {
-        editTask(element.title, element.description, index);
-    };
+   
 
+   
     //Building the inner HTML of the Element
     listItem.className = "task-list-item flex-center";
-    listItem.innerHTML = '<i class="icon-check" ></i><span id="task-title-' + index + '">' + element.title + '</span>';
+    listItem.innerHTML = '<i class="icon-check" onclick="removeTask(' + index + ')"></i><span id="task-title-' + index + '">' + element.title + '</span>';
 
+    listItem.childNodes[1].onclick = function () {
+        editTask(element.title, element.description, index);
+    };
+ 
     //Rendering-it to the DOM
     $("task-list-container").appendChild(listItem);
 }
 
+function removeTask(taskId) {
+    
+    console.log("Removing task...");
+    $state.tasks.splice(taskId, 1);
+    
+    removeFromStorage(taskId);
+    
+    $state.selectedTask.title="";
+    $state.selectedTask.description="";
+
+    closeEditor();
+    renderTaskList();
+    
+}
+
+function removeFromStorage(taskId){
+    localStorage.removeItem("task-title-" + taskId);
+    localStorage.removeItem("task-description-" + taskId);
+    localStorage.clear();
+    populateStorage($state.tasks);
+
+}
 function renderTaskList(task) {
     // If a task is given, its only an update. Otherwise we need to render the whole
     // list
@@ -156,7 +182,7 @@ function removeClass(cl) {
             .classList
             .remove(cl);
     });
-    console.log(cols);
+    //console.log(cols);
 }
 function editTask(title, description, index) {
 
@@ -170,14 +196,14 @@ function editTask(title, description, index) {
     addSelectedClass();
     //update editor DOM
     var DomTaskTitle = $("task-title");
-    DomTaskTitle.value = title;
-    $("task-desc").value = description;
+    DomTaskTitle.value =  $state.selectedTask.title;
+    $("task-desc").value = $state.selectedTask.description;
 
 }
 
 function updateTaskListRender() {
     var taskId = $state.selectedTask.id;
-    console.log($state.selectedTask.title);
+    //console.log($state.selectedTask.title);
     $("task-title-" + taskId).innerHTML = $state.selectedTask.title;
 
 }
@@ -208,7 +234,9 @@ function addTask() {
         description: $state.selectedTask.description
     };
 
-    $state.tasks.push(element);
+    $state
+        .tasks
+        .push(element);
     renderTaskList(element);
 
     addSelectedClass();

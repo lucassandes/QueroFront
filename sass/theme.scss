@@ -124,10 +124,12 @@ body {
 		font-size: $font-size-base;
 	}
 }
+
 .main-content {
-		//flex: 0 0 auto;
-		overflow-y: auto;
-	}
+	//flex: 0 0 auto;
+	overflow-y: auto;
+}
+
 .card {
 	background: white;
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
@@ -135,7 +137,6 @@ body {
 	height: 100%;
 	overflow: hidden;
 	position: relative;
-	
 	.card-header {
 		padding: 10px $basic-padding*2;
 		@include border-bottom();
@@ -187,24 +188,32 @@ body {
 		overflow-y: auto;
 		height: 100%;
 		.task-list-item {
-			//margin: 0 $basic-padding*2;
-			padding: 10px 0;
 			@include border-bottom();
-			&.task-item-selected { 
+			span {
+				padding: 10px 0;
+				width: 100%;
+			}
+			&.task-item-selected {
+				/* Quick hack for avoid encapsulating task-item on a parent node */
 				background: $selected-item;
 				margin-left: -$basic-padding * 2;
 				margin-right: -$basic-padding * 2;
 				padding-left: $basic-padding * 2;
 				border-color: $selected-item;
-				/* Quick hack for avoid encapsulating task-item on a parent node */
 				margin-top: -1px;
 				border-top: 1px solid $selected-item;
-				
 			}
 			i {
 				color: $grey-almost-light;
 				font-size: 18px;
 				padding-right: 10px;
+				cursor: pointer;
+				&:hover {
+					color: lighten($success, 20%);
+				}
+				&:active {
+					color: $success;
+				}
 			}
 		}
 	}
@@ -284,4 +293,3 @@ body {
 		}
 	}
 }
-
