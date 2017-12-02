@@ -1,5 +1,7 @@
-//(function () { Basic starter info
+
 "use strict";
+
+//Dummy data is used in case there's nothing on localStorage
 var dummyData = [
     {
         title: "1 - We're no strangers to love",
@@ -28,22 +30,24 @@ var State = function () {
     this.selectedTask = {};
 };
 
-//BOTH OF THIS WORKS -- PICK THE MOST ELEGANT ONE
+
+//simple utility to use $ instead of getElementById all the time
 var $ = document
     .getElementById
     .bind(document);
-//function $(id) { return document.getElementById(id); } dom elements
+
 
 var $state = new State();
+dealWithLocalStorage();
 
+//Rendering task list after the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", event => {
     console.log("DOM fully loaded and parsed");
     renderTaskList();
-
 });
 
-dealWithLocalStorage();
-
+// Check if there's data saved in localStorage. If so, use it. otherwise use
+// Dummy Data.
 function dealWithLocalStorage() {
     if (!localStorage.getItem('task-title-0')) {
         // Use dummy data and save it in localStorage
@@ -69,16 +73,21 @@ function dealWithLocalStorage() {
     }
 }
 
+function removeFromStorage(taskId) {
+    localStorage.removeItem("task-title-" + taskId);
+    localStorage.removeItem("task-description-" + taskId);
+    localStorage.clear();
+    populateStorage($state.tasks);
+
+}
+
 function populateStorage(tasks) {
-    console.log("Updating LocalStorage..");
+    console.log("Updating LocalStorage...");
     tasks.forEach((element, index) => {
         localStorage.setItem('task-title-' + index, element.title);
         localStorage.setItem('task-description-' + index, element.description);
     });
 }
-
-// for(i=0; i<40; i++){     tasks.push({title: "Task boladona" + i, description:
-// "Desk boladona" + i}) } loads starter info
 
 function addTaskItem(element, index) {
 
@@ -100,15 +109,6 @@ function addTaskItem(element, index) {
         drag(event);
     }
 
-    // if you wanna ecapsulate it: var listItemInner =
-    // document.createElement("div"); listItemInner.className = "task-list-item
-    // flex-center"; listItemInner.innerHTML = '<i class="icon-check" ></i><span
-    // id="task-title-' + index + '">' + element.title + '</span>';
-    // listItem.appendChild(listItemInner); Adding Edit Task function to it
-
-   
-
-   
     //Building the inner HTML of the Element
     listItem.className = "task-list-item flex-center";
     listItem.innerHTML = '<i class="icon-check" onclick="removeTask(' + index + ')"></i><span id="task-title-' + index + '">' + element.title + '</span>';
@@ -116,33 +116,26 @@ function addTaskItem(element, index) {
     listItem.childNodes[1].onclick = function () {
         editTask(element.title, element.description, index);
     };
- 
+
     //Rendering-it to the DOM
     $("task-list-container").appendChild(listItem);
 }
 
 function removeTask(taskId) {
-    
+
     console.log("Removing task...");
-    $state.tasks.splice(taskId, 1);
-    
+    $state
+        .tasks
+        .splice(taskId, 1);
     removeFromStorage(taskId);
-    
-    $state.selectedTask.title="";
-    $state.selectedTask.description="";
+
+    $state.selectedTask.title = "";
+    $state.selectedTask.description = "";
 
     closeEditor();
     renderTaskList();
-    
 }
 
-function removeFromStorage(taskId){
-    localStorage.removeItem("task-title-" + taskId);
-    localStorage.removeItem("task-description-" + taskId);
-    localStorage.clear();
-    populateStorage($state.tasks);
-
-}
 function renderTaskList(task) {
     // If a task is given, its only an update. Otherwise we need to render the whole
     // list
@@ -169,21 +162,21 @@ function showEditor() {
 }
 
 function addSelectedClass() {
-    //adding css class to selected item
     removeClass("task-item-selected");
+
     $("task-" + $state.selectedTask.id)
         .classList
         .add("task-item-selected");
 }
 function removeClass(cl) {
-    var cols = document.querySelectorAll('.task-list-item');
-    cols.forEach(element => {
+    var allTasks = document.querySelectorAll('.task-list-item');
+    allTasks.forEach(element => {
         element
             .classList
             .remove(cl);
     });
-    //console.log(cols);
 }
+
 function editTask(title, description, index) {
 
     showEditor();
@@ -194,25 +187,25 @@ function editTask(title, description, index) {
     $state.selectedTask.id = index;
 
     addSelectedClass();
-    //update editor DOM
+
+    //update editor DOM - input and textarea
     var DomTaskTitle = $("task-title");
-    DomTaskTitle.value =  $state.selectedTask.title;
+    DomTaskTitle.value = $state.selectedTask.title;
     $("task-desc").value = $state.selectedTask.description;
 
 }
 
-function updateTaskListRender() {
-    var taskId = $state.selectedTask.id;
-    //console.log($state.selectedTask.title);
-    $("task-title-" + taskId).innerHTML = $state.selectedTask.title;
 
-}
 function updateTaskTitle() {
     var DomTaskTitle = $("task-title");
     var taskId = $state.selectedTask.id;
     $state.tasks[taskId].title = DomTaskTitle.value;
     $state.selectedTask.title = DomTaskTitle.value;
-    updateTaskListRender();
+    
+    // Re-render the title of the task (in the task list - left panel) which is being
+    // editted in the right panel
+    var taskId = $state.selectedTask.id;
+    $("task-title-" + taskId).innerHTML = $state.selectedTask.title;
 
 }
 
@@ -224,7 +217,10 @@ function updateTaskDesc() {
 
 function addTask() {
     showEditor();
+    
+
     console.log("Add Task");
+
     $state.selectedTask.title = "";
     $state.selectedTask.description = "";
     $state.selectedTask.id = $state.tasks.length;
@@ -237,10 +233,10 @@ function addTask() {
     $state
         .tasks
         .push(element);
+
     renderTaskList(element);
 
     addSelectedClass();
-
     //update editor DOM
     var DomTaskTitle = $("task-title");
     DomTaskTitle.value = $state.selectedTask.title;
@@ -250,6 +246,7 @@ function addTask() {
 
 function saveTask(event) {
     event.preventDefault();
+    populateStorage($state.tasks);
     console.log("Save task!");
 }
 
@@ -257,7 +254,8 @@ function closeEditor() {
     $("add-task-container").style.display = 'none';
     $("tasks-container").className = "col-8 offset-col-2 full-height";
 }
-//})();
+
+//DRAG AND DROP
 
 function allowDrop(event) {
     event.preventDefault();

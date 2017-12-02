@@ -190,6 +190,7 @@ body {
 		.task-list-item {
 			@include border-bottom();
 			span {
+				/*fixing the hitbox*/
 				padding: 10px 0;
 				width: 100%;
 			}
@@ -204,6 +205,7 @@ body {
 				border-top: 1px solid $selected-item;
 			}
 			i {
+				padding: 10px 0;
 				color: $grey-almost-light;
 				font-size: 18px;
 				padding-right: 10px;
