@@ -253,6 +253,7 @@ function saveTask(event) {
 function closeEditor() {
     $("add-task-container").style.display = 'none';
     $("tasks-container").className = "col-8 offset-col-2 full-height";
+    populateStorage($state.tasks);
 }
 
 //DRAG AND DROP
