@@ -187,8 +187,20 @@ body {
 		overflow-y: auto;
 		height: 100%;
 		.task-list-item {
+			//margin: 0 $basic-padding*2;
 			padding: 10px 0;
 			@include border-bottom();
+			&.task-item-selected { 
+				background: $selected-item;
+				margin-left: -$basic-padding * 2;
+				margin-right: -$basic-padding * 2;
+				padding-left: $basic-padding * 2;
+				border-color: $selected-item;
+				/* Quick hack for avoid encapsulating task-item on a parent node */
+				margin-top: -1px;
+				border-top: 1px solid $selected-item;
+				
+			}
 			i {
 				color: $grey-almost-light;
 				font-size: 18px;
@@ -272,3 +284,4 @@ body {
 		}
 	}
 }
+

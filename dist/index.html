@@ -22,8 +22,7 @@
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" href="images/favicon.png">
 
-	<!-- js -->
-	<script src="js/scripts.js"></script>
+	
 </head>
 
 <body>
@@ -128,7 +127,7 @@
 						</div>
 
 						<div class="task-list">
-							<form onsubmit="saveTask()">
+							<form onsubmit="saveTask(event)">
 								<div class="task-title-container">
 									<i class="icon-check icon-input"></i>
 									<input id="task-title" onkeyup="updateTaskTitle()" type="text" placeholder="New Task" />
@@ -155,4 +154,6 @@
 	</div>
 </body>
 
+<!-- javaScript -->
+<script src="js/scripts.js"></script>
 </html>

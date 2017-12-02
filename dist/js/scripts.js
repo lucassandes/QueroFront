@@ -3,11 +3,24 @@
 
 var tasks = [
     {
-        title: "aaaaaaWork it harder",
-        description: "Work it harder description"
+        title: "1 - We're no strangers to love",
+        description: ""
     }, {
-        title: "bbbbbbMake it better",
-        description: "Make it better description"
+        title: "2 - You know the rules and so do I",
+        description: "Lorem Ipstum dolor semec."
+    }, {
+        title: "3 - A full commitments what I´m thinking of",
+        description: "Standing in line to see the show tonight."
+    }, {
+        title: "4 - You wouldn´t get this from any other guy",
+        description: "Comfortably numb"
+    }, {
+        title: "5 - A full commitments what I´m thinking of",
+        description: "Integer ut orci tortor. Pellentesque eget enim sit amet orci vehicula rhoncus."
+    }, {
+        title: "6 - Gotta make you understand",
+        description: "Never gonna give you up  Never gonna let you down  Never gonna run around and de" +
+                "sert you"
     }
 
 ];
@@ -18,6 +31,19 @@ var State = function () {
 };
 
 var $state = new State();
+
+var storage = localStorage;
+
+localStorage.setItem('tasks', '{title: Titulo, description: Teste}');
+var teste = localStorage.getItem('tasks');
+
+console.log(teste);
+if (localStorage.getItem('meuGato')) {
+    console.log("Feliz");
+
+} else {
+    console.log("Triste");
+}
 
 //update state with dummy data
 $state.tasks = tasks;
@@ -44,20 +70,39 @@ function addTaskItem(element, index) {
     //Atributting an unique ID
     listItem.id = "task-" + index;
 
+    listItem.draggable = "true";
+
+    listItem.ondrop = function () {
+        drop(event);
+    }
+    listItem.ondragover = function () {
+        allowDrop(event);
+    }
+    listItem.ondragstart = function () {
+        drag(event);
+    }
+
+
+    //if you wanna ecapsulate it:
+    //var listItemInner = document.createElement("div");
+    //listItemInner.className = "task-list-item flex-center";
+    //listItemInner.innerHTML = '<i class="icon-check" ></i><span id="task-title-' + index + '">' + element.title + '</span>';
+    //listItem.appendChild(listItemInner);
     //Adding Edit Task function to it
+    
     listItem.onclick = function () {
         editTask(element.title, element.description, index);
     };
 
+    
+
     //Building the inner HTML of the Element
     listItem.className = "task-list-item flex-center";
-    listItem.innerHTML = '<i class="icon-check" ></i><span id="task-title-' + index + '">' + element.title + '</span>'
+    listItem.innerHTML = '<i class="icon-check" ></i><span id="task-title-' + index + '">' + element.title + '</span>';
 
     //Rendering-it to the DOM
     $("task-list-container").appendChild(listItem);
 }
-
-
 
 function renderTaskList(task) {
     // If a task is given, its only an update. Otherwise we need to render the whole
@@ -84,6 +129,19 @@ function showEditor() {
     $("add-task-container").style.display = 'block';
 }
 
+
+function addSelectedClass(){
+      //adding css class to selected item
+      removeClass("task-item-selected");
+      $("task-" + $state.selectedTask.id).classList.add("task-item-selected");
+}
+function removeClass(cl){
+    var cols = document.querySelectorAll('.task-list-item');
+    cols.forEach(element => {
+        element.classList.remove(cl);
+    });
+    console.log(cols);
+}
 function editTask(title, description, index) {
 
     showEditor();
@@ -93,6 +151,7 @@ function editTask(title, description, index) {
     $state.selectedTask.description = description;
     $state.selectedTask.id = index;
 
+    addSelectedClass();
     //update editor DOM
     var DomTaskTitle = $("task-title");
     DomTaskTitle.value = title;
@@ -136,6 +195,8 @@ function addTask() {
     tasks.push(element);
     renderTaskList(element);
 
+    addSelectedClass();
+
     //update editor DOM
     var DomTaskTitle = $("task-title");
     DomTaskTitle.value = $state.selectedTask.title;
@@ -143,7 +204,7 @@ function addTask() {
 
 }
 
-function saveTask() {
+function saveTask(event) {
     event.preventDefault();
     console.log("Save task!");
 }
@@ -153,3 +214,26 @@ function closeAddTask() {
     $("tasks-container").className = "col-8 offset-col-2 full-height";
 }
 //})();
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drag(event) {
+    event
+        .dataTransfer
+        .setData("text", event.target.id);
+    event
+        .classList
+        .add('dragElem');
+}
+
+function drop(event) {
+    event.preventDefault();
+    var data = event
+        .dataTransfer
+        .getData("text");
+    event
+        .target
+        .appendChild(document.getElementById(data));
+}
