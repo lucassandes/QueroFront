@@ -1,4 +1,3 @@
-
 "use strict";
 
 //Dummy data is used in case there's nothing on localStorage
@@ -30,12 +29,10 @@ var State = function () {
     this.selectedTask = {};
 };
 
-
 //simple utility to use $ instead of getElementById all the time
 var $ = document
     .getElementById
     .bind(document);
-
 
 var $state = new State();
 dealWithLocalStorage();
@@ -124,16 +121,35 @@ function addTaskItem(element, index) {
 function removeTask(taskId) {
 
     console.log("Removing task...");
+    
+    //animations
+    $("task-" + taskId)
+        .classList
+        .add("animated", "fadeOutRight");
+
+    $("add-task-container")
+        .classList
+        .add("animated", "fadeOutRight");
+  
+    setTimeout(function () {
+        renderTaskList();
+        closeEditor();
+
+        //removing animation from editor
+        $("add-task-container")
+        .classList
+        .remove("animated", "fadeOutRight");
+    }, 1000);
+
+    //removing task from $state
     $state
         .tasks
         .splice(taskId, 1);
+    
     removeFromStorage(taskId);
 
     $state.selectedTask.title = "";
     $state.selectedTask.description = "";
-
-    closeEditor();
-    renderTaskList();
 }
 
 function renderTaskList(task) {
@@ -195,15 +211,14 @@ function editTask(title, description, index) {
 
 }
 
-
 function updateTaskTitle() {
     var DomTaskTitle = $("task-title");
     var taskId = $state.selectedTask.id;
     $state.tasks[taskId].title = DomTaskTitle.value;
     $state.selectedTask.title = DomTaskTitle.value;
-    
-    // Re-render the title of the task (in the task list - left panel) which is being
-    // editted in the right panel
+
+    // Re-render the title of the task (in the task list - left panel) which is
+    // being editted in the right panel
     var taskId = $state.selectedTask.id;
     $("task-title-" + taskId).innerHTML = $state.selectedTask.title;
 
@@ -217,7 +232,6 @@ function updateTaskDesc() {
 
 function addTask() {
     showEditor();
-    
 
     console.log("Add Task");
 
