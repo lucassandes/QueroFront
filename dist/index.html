@@ -122,7 +122,7 @@
 							</div>
 
 							<div class="absolute-right top-zero">
-								<button onclick="closeAddTask()" class="button button-ghost button-close">×</button>
+								<button onclick="closeEditor()" class="button button-ghost button-close">×</button>
 							</div>
 						</div>
 
@@ -130,10 +130,10 @@
 							<form onsubmit="saveTask(event)">
 								<div class="task-title-container">
 									<i class="icon-check icon-input"></i>
-									<input id="task-title" onkeyup="updateTaskTitle()" type="text" placeholder="New Task" />
+									<input id="task-title" onkeyup="updateTaskTitle()" onfocusout="populateStorage($state.tasks)" type="text" placeholder="New Task" />
 								</div>
 								<div class=" task-desc-container">
-									<textarea class="description-textarea" onkeyup="updateTaskDesc()" id="task-desc" placeholder="Description"></textarea>
+									<textarea class="description-textarea" onkeyup="updateTaskDesc()" onfocusout="populateStorage($state.tasks)" id="task-desc" placeholder="Description"></textarea>
 								</div>
 							</form>
 

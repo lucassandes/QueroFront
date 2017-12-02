@@ -1,7 +1,7 @@
 //(function () { Basic starter info
 "use strict";
 
-var tasks = [
+var dummyData = [
     {
         title: "1 - We're no strangers to love",
         description: ""
@@ -22,7 +22,6 @@ var tasks = [
         description: "Never gonna give you up  Never gonna let you down  Never gonna run around and de" +
                 "sert you"
     }
-
 ];
 
 var State = function () {
@@ -31,22 +30,40 @@ var State = function () {
 };
 
 var $state = new State();
+dealWithLocalStorage();
 
-var storage = localStorage;
+function dealWithLocalStorage() {
+    if (!localStorage.getItem('task-title-0')) {
+        // Use dummy data and save it in localStorage
+        $state.tasks = dummyData;
+        console.log("There's nothing stored at localHost. Using dummy data...");
+        populateStorage($state.tasks);
 
-localStorage.setItem('tasks', '{title: Titulo, description: Teste}');
-var teste = localStorage.getItem('tasks');
+    } else {
+        //use LocalStorage. Load it and save it to $state
+        var i = 0;
+        console.log("Getting data from localStorage...");
+        while (localStorage.getItem('task-title-' + i)) {
+            var task = {
+                title: localStorage.getItem('task-title-' + i),
+                description: localStorage.getItem('task-description-' + i)
+            }
+            i++;
+            $state
+                .tasks
+                .push(task);
 
-console.log(teste);
-if (localStorage.getItem('meuGato')) {
-    console.log("Feliz");
-
-} else {
-    console.log("Triste");
+        }
+    }
 }
 
-//update state with dummy data
-$state.tasks = tasks;
+function populateStorage(tasks) {
+    console.log("Updating LocalStorage..");
+    tasks.forEach((element, index) => {
+        localStorage.setItem('task-title-' + index, element.title);
+        localStorage.setItem('task-description-' + index, element.description);
+    });
+}
 
 // for(i=0; i<40; i++){     tasks.push({title: "Task boladona" + i, description:
 // "Desk boladona" + i}) } loads starter info
@@ -82,19 +99,15 @@ function addTaskItem(element, index) {
         drag(event);
     }
 
+    // if you wanna ecapsulate it: var listItemInner =
+    // document.createElement("div"); listItemInner.className = "task-list-item
+    // flex-center"; listItemInner.innerHTML = '<i class="icon-check" ></i><span
+    // id="task-title-' + index + '">' + element.title + '</span>';
+    // listItem.appendChild(listItemInner); Adding Edit Task function to it
 
-    //if you wanna ecapsulate it:
-    //var listItemInner = document.createElement("div");
-    //listItemInner.className = "task-list-item flex-center";
-    //listItemInner.innerHTML = '<i class="icon-check" ></i><span id="task-title-' + index + '">' + element.title + '</span>';
-    //listItem.appendChild(listItemInner);
-    //Adding Edit Task function to it
-    
     listItem.onclick = function () {
         editTask(element.title, element.description, index);
     };
-
-    
 
     //Building the inner HTML of the Element
     listItem.className = "task-list-item flex-center";
@@ -129,16 +142,19 @@ function showEditor() {
     $("add-task-container").style.display = 'block';
 }
 
-
-function addSelectedClass(){
-      //adding css class to selected item
-      removeClass("task-item-selected");
-      $("task-" + $state.selectedTask.id).classList.add("task-item-selected");
+function addSelectedClass() {
+    //adding css class to selected item
+    removeClass("task-item-selected");
+    $("task-" + $state.selectedTask.id)
+        .classList
+        .add("task-item-selected");
 }
-function removeClass(cl){
+function removeClass(cl) {
     var cols = document.querySelectorAll('.task-list-item');
     cols.forEach(element => {
-        element.classList.remove(cl);
+        element
+            .classList
+            .remove(cl);
     });
     console.log(cols);
 }
@@ -192,7 +208,7 @@ function addTask() {
         description: $state.selectedTask.description
     };
 
-    tasks.push(element);
+    $state.tasks.push(element);
     renderTaskList(element);
 
     addSelectedClass();
@@ -209,7 +225,7 @@ function saveTask(event) {
     console.log("Save task!");
 }
 
-function closeAddTask() {
+function closeEditor() {
     $("add-task-container").style.display = 'none';
     $("tasks-container").className = "col-8 offset-col-2 full-height";
 }
