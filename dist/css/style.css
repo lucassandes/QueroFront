@@ -355,6 +355,17 @@ body {
 .main-content {
   overflow-y: auto; }
 
+.circle {
+  border: 2px solid #c3ced2;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  border-radius: 100px;
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  right: 30px; }
+
 .card {
   background: white;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
@@ -407,9 +418,13 @@ body {
     padding: 0 30px;
     overflow-y: auto;
     height: 100%; }
+    .card .task-list .circle {
+      display: none; }
     .card .task-list .task-list-item {
       border-bottom: 1px solid #e0e6e8; }
-      .card .task-list .task-list-item span {
+      .card .task-list .task-list-item:hover .circle, .card .task-list .task-list-item.task-item-selected .circle {
+        display: block; }
+      .card .task-list .task-list-item .task-list-title {
         /*fixing the hitbox*/
         padding: 10px 0;
         width: 100%; }
@@ -459,7 +474,9 @@ body {
         outline: none;
         border: 1px solid #848f99; }
   .card .task-desc-container {
-    margin-top: 15px; }
+    margin-top: 15px;
+    margin-left: 47px;
+    /* a magic number here. I'm sorry */ }
     .card .task-desc-container textarea {
       font-size: 13px;
       font-family: 'Roboto', sans-serif;

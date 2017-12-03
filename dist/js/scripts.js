@@ -108,7 +108,7 @@ function addTaskItem(element, index) {
 
     //Building the inner HTML of the Element
     listItem.className = "task-list-item flex-center";
-    listItem.innerHTML = '<i class="icon-check" onclick="removeTask(' + index + ')"></i><span id="task-title-' + index + '">' + element.title + '</span>';
+    listItem.innerHTML = '<i class="icon-check" onclick="removeTask(' + index + ')"></i><span id="task-title-' + index + '" class="task-list-title">' + element.title + '</span><span class="circle"></span>';
 
     listItem.childNodes[1].onclick = function () {
         editTask(element.title, element.description, index);
@@ -121,7 +121,7 @@ function addTaskItem(element, index) {
 function removeTask(taskId) {
 
     console.log("Removing task...");
-    
+
     //animations
     $("task-" + taskId)
         .classList
@@ -130,22 +130,22 @@ function removeTask(taskId) {
     $("add-task-container")
         .classList
         .add("animated", "fadeOutRight");
-  
+
     setTimeout(function () {
         renderTaskList();
         closeEditor();
 
         //removing animation from editor
         $("add-task-container")
-        .classList
-        .remove("animated", "fadeOutRight");
+            .classList
+            .remove("animated", "fadeOutRight");
     }, 1000);
 
     //removing task from $state
     $state
         .tasks
         .splice(taskId, 1);
-    
+
     removeFromStorage(taskId);
 
     $state.selectedTask.title = "";
