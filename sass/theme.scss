@@ -78,7 +78,7 @@ body {
 				fill: white;
 				width: 16px;
 				height: 16px;
-				margin: auto auto; 
+				margin: auto auto;
 			}
 			&:hover {
 				border: 3px solid $grey-almost-light;
@@ -152,11 +152,10 @@ body {
 .circle {
 	border: 2px solid $grey-almost-light;
 	@include border-radius(100px);
-	position: absolute;
 	height: 10px;
 	width: 10px;
-	right: $basic-padding*2;
 }
+
 .card {
 	background: white;
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
@@ -171,6 +170,10 @@ body {
 		.avatar {
 			margin-right: 10px;
 		}
+		.circle {
+			margin-left: $basic-padding / 3;
+			margin-right: $basic-padding;
+		}
 	}
 	.card-header-icons {
 		font-size: 16px;
@@ -181,8 +184,8 @@ body {
 		i {
 			@include border-radius(100px);
 			border: 1px solid $grey-almost-light;
-			padding: 5px;
-			margin-left: 5px;
+			padding: $basic-padding / 3;
+			margin-left: $basic-padding / 3;
 			height: 30px;
 			width: 30px;
 			&:hover {
@@ -215,17 +218,18 @@ body {
 		overflow-y: auto;
 		height: 100%;
 		.circle {
+			right: $basic-padding*2;
+			position: absolute;
 			display: none;
 		}
 		.task-list-item {
 			@include border-bottom();
-
-			&:hover, &.task-item-selected  {
+			&:hover,
+			&.task-item-selected {
 				.circle {
 					display: block;
 				}
 			}
-
 			.task-list-title {
 				/*fixing the hitbox*/
 				padding: 10px 0;
@@ -286,7 +290,8 @@ body {
 	}
 	.task-desc-container {
 		margin-top: $basic-padding;
-		margin-left: 47px; /* a magic number here. I'm sorry */
+		margin-left: 47px;
+		/* a magic number here. I'm sorry */
 		textarea {
 			font-size: $font-size-base;
 			font-family: 'Roboto', sans-serif;
@@ -294,7 +299,7 @@ body {
 			box-sizing: border-box;
 			border: 1px solid white;
 			@include border-radius(3px);
-			padding: 5px;
+			padding: $basic-padding / 3;
 			&:hover {
 				border: 1px solid $grey-light;
 			}
@@ -319,6 +324,7 @@ body {
 		margin-right: 10px;
 	}
 	textarea {
+		resize: none;
 		font-size: $font-size-base;
 		font-family: 'Roboto', sans-serif;
 		width: 100%;

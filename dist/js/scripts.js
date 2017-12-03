@@ -56,12 +56,11 @@ function dealWithLocalStorage() {
         //use LocalStorage. Load it and save it to $state
         var i = 0;
         console.log("Getting data from localStorage...");
-        while (localStorage.getItem('task-title-' + i)) {
+        for (i = 0; i < localStorage.getItem("task-list-size"); i++) {
             var task = {
                 title: localStorage.getItem('task-title-' + i),
                 description: localStorage.getItem('task-description-' + i)
             }
-            i++;
             $state
                 .tasks
                 .push(task);
@@ -80,6 +79,7 @@ function removeFromStorage(taskId) {
 
 function populateStorage(tasks) {
     console.log("Updating LocalStorage...");
+    localStorage.setItem("task-list-size", tasks.length);
     tasks.forEach((element, index) => {
         localStorage.setItem('task-title-' + index, element.title);
         localStorage.setItem('task-description-' + index, element.description);
