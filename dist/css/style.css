@@ -281,6 +281,25 @@ body {
       cursor: pointer; }
       .header .top-bar .header-menu:hover {
         background: #f6f8f9; }
+    .header .top-bar .button-plus {
+      background: linear-gradient(#ff6272, #fca725);
+      -webkit-border-radius: 100px;
+      -moz-border-radius: 100px;
+      -ms-border-radius: 100px;
+      border-radius: 100px;
+      height: 24px;
+      width: 24px;
+      display: flex;
+      align-items: center;
+      cursor: pointer; }
+      .header .top-bar .button-plus svg {
+        fill: white;
+        width: 16px;
+        height: 16px;
+        margin: auto auto; }
+      .header .top-bar .button-plus:hover {
+        border: 3px solid #c3ced2;
+        margin-left: 12px; }
     .header .top-bar .top-bar-links {
       margin: 0 15px;
       font-size: 13px; }

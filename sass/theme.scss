@@ -66,6 +66,25 @@ body {
 				background: $grey-lighter;
 			}
 		}
+		.button-plus {
+			background: linear-gradient(#ff6272, #fca725);
+			@include border-radius(100px);
+			height: 24px;
+			width: 24px;
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+			svg {
+				fill: white;
+				width: 16px;
+				height: 16px;
+				margin: auto auto; 
+			}
+			&:hover {
+				border: 3px solid $grey-almost-light;
+				margin-left: $basic-padding - 3px;
+			}
+		}
 		.top-bar-links {
 			margin: 0 $basic-padding;
 			font-size: $font-size-base;

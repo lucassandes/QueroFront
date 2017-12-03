@@ -45,9 +45,7 @@
 
 $max-columns: 12;
 @media (min-width: 550px) {
-    .container {
-        //width: 80%;
-    }
+    
     /* columns */
     @for $i from 1 through $max-columns {
         .col-#{$i} {
