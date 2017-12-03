@@ -55,8 +55,7 @@ body {
 		}
 	}
 	.top-bar {
-		@include border-bottom(); //padding: 0 5px;
-		//padding-right: 20px;
+		@include border-bottom-solid(); //padding: 0 5px;
 		.header-menu {
 			border-right: 1px solid $grey-light;
 			padding: $basic-padding;
@@ -145,7 +144,6 @@ body {
 }
 
 .main-content {
-	//flex: 0 0 auto;
 	overflow-y: auto;
 }
 
@@ -165,7 +163,7 @@ body {
 	position: relative;
 	.card-header {
 		padding: 10px $basic-padding*2;
-		@include border-bottom();
+		@include border-bottom-solid();
 		position: relative;
 		.avatar {
 			margin-right: 10px;
@@ -223,7 +221,7 @@ body {
 			display: none;
 		}
 		.task-list-item {
-			@include border-bottom();
+			@include border-bottom-solid();
 			&:hover,
 			&.task-item-selected {
 				.circle {
