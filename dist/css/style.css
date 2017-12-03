@@ -229,6 +229,10 @@ input, textarea {
   display: block;
   margin: 0 auto; }
 
+@media (max-width: 550px) {
+  .hidden-xm {
+    display: none; } }
+
 body {
   background: url("../images/background_snow_montain.jpg") no-repeat;
   background-size: cover;

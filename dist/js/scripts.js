@@ -3,22 +3,22 @@
 //Dummy data is used in case there's nothing on localStorage
 var dummyData = [
     {
-        title: "1 - We're no strangers to love",
+        title: "We're no strangers to love",
         description: ""
     }, {
-        title: "2 - You know the rules and so do I",
+        title: "You know the rules and so do I",
         description: "Lorem Ipstum dolor semec."
     }, {
-        title: "3 - A full commitments what I´m thinking of",
+        title: "A full commitments what I´m thinking of",
         description: "Standing in line to see the show tonight."
     }, {
-        title: "4 - You wouldn´t get this from any other guy",
+        title: "You wouldn´t get this from any other guy",
         description: "Comfortably numb"
     }, {
-        title: "5 - A full commitments what I´m thinking of",
+        title: "A full commitments what I´m thinking of",
         description: "Integer ut orci tortor. Pellentesque eget enim sit amet orci vehicula rhoncus."
     }, {
-        title: "6 - Gotta make you understand",
+        title: "Gotta make you understand",
         description: "Never gonna give you up  Never gonna let you down  Never gonna run around and de" +
                 "sert you"
     }
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", event => {
 // Check if there's data saved in localStorage. If so, use it. otherwise use
 // Dummy Data.
 function dealWithLocalStorage() {
-    if (!localStorage.getItem('task-title-0')) {
+    if (!localStorage.getItem("task-list-size")) {
         // Use dummy data and save it in localStorage
         $state.tasks = dummyData;
         console.log("There's nothing stored at localStorage. Using dummy data...");
@@ -57,15 +57,14 @@ function dealWithLocalStorage() {
         var i = 0;
         console.log("Getting data from localStorage...");
         for (i = 0; i < localStorage.getItem("task-list-size"); i++) {
-            var task = {
-                title: localStorage.getItem('task-title-' + i),
-                description: localStorage.getItem('task-description-' + i)
-            }
+            var task = JSON.parse(localStorage.getItem("task-" + i ));
             $state
                 .tasks
                 .push(task);
 
         }
+
+        console.log($state.tasks);
     }
 }
 
@@ -80,9 +79,15 @@ function removeFromStorage(taskId) {
 function populateStorage(tasks) {
     console.log("Updating LocalStorage...");
     localStorage.setItem("task-list-size", tasks.length);
+    console.log(JSON.stringify(tasks));
+
     tasks.forEach((element, index) => {
-        localStorage.setItem('task-title-' + index, element.title);
-        localStorage.setItem('task-description-' + index, element.description);
+        var task = {
+            title: element.title,
+            description: element.description
+        }
+        localStorage.setItem("task-" + index, JSON.stringify(task));
+       
     });
 }
 
@@ -93,18 +98,6 @@ function addTaskItem(element, index) {
 
     //Atributting an unique ID
     listItem.id = "task-" + index;
-
-    listItem.draggable = "true";
-
-    listItem.ondrop = function () {
-        drop(event);
-    }
-    listItem.ondragover = function () {
-        allowDrop(event);
-    }
-    listItem.ondragstart = function () {
-        drag(event);
-    }
 
     //Building the inner HTML of the Element
     listItem.className = "task-list-item flex-center";
@@ -174,7 +167,7 @@ function renderTaskList(task) {
 function showEditor() {
     //Simply show de Editor (right panel)
     $('tasks-container').className = "col-7 full-height";
-    $("add-task-container").style.display = 'block';
+    $("add-task-container").style.display = "block";
 }
 
 function addSelectedClass() {
@@ -269,29 +262,4 @@ function closeEditor() {
     $("tasks-container").className = "col-8 offset-col-2 full-height";
     removeClass("task-item-selected");
     populateStorage($state.tasks);
-}
-
-//DRAG AND DROP
-
-function allowDrop(event) {
-    event.preventDefault();
-}
-
-function drag(event) {
-    event
-        .dataTransfer
-        .setData("text", event.target.id);
-    event
-        .classList
-        .add('dragElem');
-}
-
-function drop(event) {
-    event.preventDefault();
-    var data = event
-        .dataTransfer
-        .getData("text");
-    event
-        .target
-        .appendChild(document.getElementById(data));
 }
