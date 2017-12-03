@@ -59,8 +59,8 @@ body {
 		.header-menu {
 			border-right: 1px solid $grey-light;
 			padding: $basic-padding;
-			margin-left: -$basic-padding;
 			cursor: pointer;
+			margin-left: -$basic-padding;
 			&:hover {
 				background: $grey-lighter;
 			}
@@ -337,3 +337,4 @@ body {
 		}
 	}
 }
+

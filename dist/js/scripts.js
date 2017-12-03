@@ -166,7 +166,7 @@ function renderTaskList(task) {
 
 function showEditor() {
     //Simply show de Editor (right panel)
-    $('tasks-container').className = "col-7 full-height";
+    $('tasks-container').className = "col-7 full-height hidden-xs";
     $("add-task-container").style.display = "block";
 }
 

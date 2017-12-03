@@ -44,6 +44,22 @@
 /* For devices larger than 550px */
 
 $max-columns: 12;
+/* columns */
+@for $i from 1 through $max-columns {
+    .col-xs-#{$i} {
+        width: (100% / $max-columns) * $i;
+        float: left; 
+        box-sizing: border-box;
+        padding: 0 $basic-padding;
+    }
+}
+/* offsets */
+@for $i from 1 through $max-columns {
+    .offset-col-xs-#{$i} {
+        margin-left: (100% / $max-columns) * $i;
+    }
+}
+
 @media (min-width: 550px) {
     
     /* columns */
