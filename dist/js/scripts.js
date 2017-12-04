@@ -64,7 +64,6 @@ function dealWithLocalStorage() {
 
         }
 
-        console.log($state.tasks);
     }
 }
 
