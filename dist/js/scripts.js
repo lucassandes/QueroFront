@@ -263,3 +263,11 @@ function closeEditor() {
     removeClass("task-item-selected");
     populateStorage($state.tasks);
 }
+
+function hideCommentSection(){
+    $("comment-section").classList.add("hidden-xs");
+}
+
+function showCommentSection(){
+    $("comment-section").classList.remove("hidden-xs");
+}

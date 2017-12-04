@@ -134,17 +134,17 @@
 							<form onsubmit="saveTask(event)">
 								<div class="task-title-container">
 									<i class="icon-check icon-input"></i>
-									<input id="task-title" onkeyup="updateTaskTitle()" onfocusout="populateStorage($state.tasks)" type="text" placeholder="New Task" />
+									<input id="task-title" onkeyup="updateTaskTitle()" onfocus="hideCommentSection()" onfocusout="populateStorage($state.tasks); showCommentSection()" type="text" placeholder="New Task" />
 								</div>
 								<div class=" task-desc-container">
-									<textarea class="description-textarea" onkeyup="updateTaskDesc()" onfocusout="populateStorage($state.tasks)" id="task-desc" placeholder="Description"></textarea>
+									<textarea class="description-textarea" onkeyup="updateTaskDesc()" onfocus="hideCommentSection()" onfocusout="populateStorage($state.tasks); showCommentSection()" id="task-desc" placeholder="Description"></textarea>
 								</div>
 							</form>
 
 
 						</div>
 
-						<div class="add-comment-container">
+						<div id="comment-section" class="add-comment-container">
 
 							<img src="images/avatar_lucas_sandes.png" class="avatar avatar-medium" />
 
