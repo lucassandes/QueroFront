@@ -133,7 +133,7 @@
 						<div class="task-list">
 							<form onsubmit="saveTask(event)">
 								<div class="task-title-container">
-									<i class="icon-check icon-input"></i>
+									<i onclick="removeTask($state.selectedTask.id)" class="icon-check icon-input "></i>
 									<input id="task-title" onkeyup="updateTaskTitle()" onfocus="hideCommentSection()" onfocusout="populateStorage($state.tasks); showCommentSection()" type="text" placeholder="New Task" />
 								</div>
 								<div class=" task-desc-container">

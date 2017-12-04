@@ -575,7 +575,12 @@ body {
     .card .task-title-container:hover {
       border: 1px solid #e0e6e8; }
     .card .task-title-container i {
-      font-size: 30px; }
+      font-size: 30px;
+      cursor: pointer; }
+      .card .task-title-container i:hover {
+        color: #a3d7a3; }
+      .card .task-title-container i:active {
+        color: #5cb85c; }
     .card .task-title-container input {
       padding: 5px 10px 5px 50px;
       background-color: transparent;

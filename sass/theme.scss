@@ -268,6 +268,13 @@ body {
 		}
 		i {
 			font-size: 30px;
+			cursor: pointer;
+			&:hover {
+				color: lighten($success, 20%);
+			}
+			&:active {
+				color: $success;
+			}
 		}
 		input {
 			padding: 5px 10px 5px 50px;

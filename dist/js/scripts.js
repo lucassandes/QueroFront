@@ -78,7 +78,6 @@ function removeFromStorage(taskId) {
 function populateStorage(tasks) {
     console.log("Updating LocalStorage...");
     localStorage.setItem("task-list-size", tasks.length);
-    console.log(JSON.stringify(tasks));
 
     tasks.forEach((element, index) => {
         var task = {
