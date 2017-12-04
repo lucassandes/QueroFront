@@ -1,21 +1,24 @@
 # QueroFront
 
-This is a simple app developed for
+A simple app inspired by [Asana](https://asana.com).
 
 ## Functionalities
 
 * Add, Edit and Delete (mark as done) tasks
-* Data persistence throught `localStorage``
-* Drag and Drop tasks for re-ordering the list
+* Data persistence throught `localStorage`
 
 ## JavaScript
+
 Inspired by React, a global object called `$state` is used. `$state` has the list with all tasks and the current (selected) task.
 
 
-
-## HTML Markup
-The markup was written with HTML semantics in mind. Which means that if something behaves as a button, it has a `button` tag around it :)
-
-
 ## CSS generated with SASS
-All the styling was generated with a SASS compiler. The SASS files can be read in the main directory. In the `dist` directory consists only the CSS generated.
+
+Inspired by [Bootstrap](http://getbootstrap.com/), a grid system with 12 columns was created. For the vertical aligment of the components, flex-box properties were used.
+
+
+## External resources
+
+The only external resource used was [SimpleLineIcons](http://simplelineicons.com/). 
+
+
