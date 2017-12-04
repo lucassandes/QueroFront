@@ -341,7 +341,7 @@ input, textarea {
 
 @media (max-width: 550px) {
   .hidden-xs {
-    display: none; } }
+    display: none !important; } }
 
 body {
   background: url("../images/background_snow_montain.jpg") no-repeat;
